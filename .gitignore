@@ -1,0 +1,6 @@
+# Simulation artifacts
+sim/*.vvp
+sim/*.vcd
+*.vcd
+*.vvp
+.DS_Store
