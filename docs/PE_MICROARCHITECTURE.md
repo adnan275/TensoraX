@@ -50,11 +50,11 @@ A_in [15:0] ----------> [ A_reg (16-bit) ]      [ Multiplier ] (16x16 Signed)
   $$-2^{15} \le A, B \le 2^{15} - 1 \quad \implies \quad [-32,768, +32,767]$$
 - **Intermediate Product ($P = A \times B$):**
   $$P_{\max} = (-32,768)^2 = 1,073,741,824 = 2^{30}$$
-  A minimum of 31 signed bits is required to accommodate full dynamic range without precision truncation.
+  A minimum of 32 signed bits is required to hold this product ($2^{30}$ needs 31 magnitude bits plus a sign bit).
 - **Dot-Product Accumulation ($C_{i,j} = \sum_{k=0}^{K-1} A_{i,k} \cdot B_{k,j}$):**
   For an $N \times N$ matrix ($N = 3$), the maximum accumulator value:
-  $$\text{Acc}_{\max} = 3 \times 2^{30} \approx 3.22 \times 10^9 < 2^{31} - 1$$
-  TensoraX provisions a **32-bit signed accumulator**, completely eliminating arithmetic overflow during matrix dot-products while preserving full IEEE fixed-point precision.
+  $$\text{Acc}_{\max} = 3 \times 2^{30} \approx 3.22 \times 10^9 > 2^{31} - 1 = 2,147,483,647$$
+  TensoraX provisions a **32-bit signed accumulator**. A single product always fits, but the worst-case dot product (all operands at $-32,768$) exceeds the 32-bit signed range and wraps in two's-complement arithmetic (simulated: $-1,073,741,824$). The accumulator is correct only while every intermediate and final accumulation stays within the signed 32-bit range $[-2^{31}, 2^{31}-1]$; inputs that can exceed it need a wider accumulator or saturation.
 
 ---
 
