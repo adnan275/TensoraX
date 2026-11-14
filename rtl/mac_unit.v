@@ -5,6 +5,7 @@
 // Description: Synthesizable 16-bit Multiply-Accumulate (MAC) arithmetic unit.
 //              Performs signed multiplication (16x16 -> 32) and accumulates
 //              into a 32-bit internal register with clear and enable control.
+//              Priority order: rst_n (async) > clr_acc (sync) > mac_en (enable).
 // ============================================================================
 
 `timescale 1ns / 1ps
@@ -27,19 +28,21 @@ module mac_unit #(
     wire signed [ACC_WIDTH-1:0] product;
     assign product = a_val * b_val;
 
-    // Accumulation register with synchronous clear and enable
+    // Accumulation register:
+    // Priority order:
+    // 1. Asynchronous active-low reset (!rst_n) clears acc_out to 0
+    // 2. Synchronous clr_acc initializes acc_out with current product (if mac_en) or 0
+    // 3. Normal mac_en accumulates: acc_out <= acc_out + product
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             acc_out <= {ACC_WIDTH{1'b0}};
         end else if (clr_acc) begin
-            // Clear accumulator when starting a new matrix pass
             if (mac_en) begin
                 acc_out <= product;
             end else begin
                 acc_out <= {ACC_WIDTH{1'b0}};
             end
         end else if (mac_en) begin
-            // MAC core operation: acc <= acc + (A * B)
             acc_out <= acc_out + product;
         end
     end
