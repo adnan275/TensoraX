@@ -4,7 +4,7 @@
 // Author: Adnan Rizvi (Lead Microarchitect & Core PE Datapath Engineer)
 // Description: Unit-level self-checking testbench for Processing Element (PE).
 //              Verifies MAC computation, spatial forwarding, and accumulator
-//              reset under various signed test vectors.
+//              reset under signed, negative, and zero test vectors.
 // ============================================================================
 
 `timescale 1ns / 1ps
@@ -71,7 +71,9 @@ module tb_pe;
         rst_n = 1;
         #10;
 
-        // Drive inputs on falling edge to give stable setup time
+        // --------------------------------------------------------------------
+        // Test 1: Standard Directed Accumulation
+        // --------------------------------------------------------------------
         @(negedge clk);
         clr_acc  = 1'b1; // Start new accumulation
         valid_in = 1'b1;
@@ -123,6 +125,40 @@ module tb_pe;
             errors = errors + 1;
         end else begin
             $display("[PASS] Time %0t: Dot-Product Accumulation Correct! c_out=%0d (Expected: 44)", $time, c_out);
+        end
+
+        // --------------------------------------------------------------------
+        // Test 2: Negative and Zero Multiplication Corner Cases
+        // --------------------------------------------------------------------
+        // Vector 4: (-8) * (-5) = 40 (start fresh accumulation)
+        @(negedge clk);
+        clr_acc  = 1'b1;
+        valid_in = 1'b1;
+        a_in     = -16'sd8;
+        b_in     = -16'sd5;
+
+        @(posedge clk);
+        #1;
+        if (c_out !== 32'sd40) begin
+            $display("[FAIL] Negative multiplication error: c_out=%0d (Expected: 40)", c_out);
+            errors = errors + 1;
+        end else begin
+            $display("[PASS] Signed negative product verified: (-8) * (-5) = %0d", c_out);
+        end
+
+        // Vector 5: 0 * 15 = 0 -> Acc should remain 40
+        @(negedge clk);
+        clr_acc = 1'b0;
+        a_in    = 16'sd0;
+        b_in    = 16'sd15;
+
+        @(posedge clk);
+        #1;
+        if (c_out !== 32'sd40) begin
+            $display("[FAIL] Zero operand accumulation error: c_out=%0d (Expected: 40)", c_out);
+            errors = errors + 1;
+        end else begin
+            $display("[PASS] Zero operand multiplication verified: 40 + (0 * 15) = %0d", c_out);
         end
 
         // Summary
