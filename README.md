@@ -1,7 +1,7 @@
 # TensoraX: 2D Systolic Array Matrix Multiplication Accelerator
 
 [![Hardware Description](https://img.shields.io/badge/Language-Verilog%20HDL-blue.svg)](rtl/)
-[![Verification](https://img.shields.io/badge/Verification-100%25%20Passing-brightgreen.svg)](sim/)
+[![Verification](https://img.shields.io/badge/Verification-Simulation%20Tested-brightgreen.svg)](tb/)
 [![Course](https://img.shields.io/badge/Course-Modern%20Computer%20Architecture-orange.svg)]()
 [![Target](https://img.shields.io/badge/Target-AI%20Hardware%20Acceleration-purple.svg)]()
 
@@ -111,18 +111,18 @@ Or execute the Python golden model:
 python3 scripts/pe_golden_model.py
 ```
 
-### 3. Run Full $3 \times 3$ Systolic Array Simulation
+### 3. Run the $3 \times 3$ Systolic Array Simulations
+Requires Icarus Verilog. Run from the repository root:
 ```bash
-./scripts/run_array_sim.sh
-# or using Makefile:
-make array
+mkdir -p sim
+# Directed testbench
+iverilog -g2012 -I rtl -o sim/array.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_array_3x3.v tb/tb_systolic_array_3x3.v && vvp sim/array.vvp
+# Randomized testbench (600 operations)
+iverilog -g2012 -I rtl -o sim/random.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_array_3x3.v tb/tb_systolic_array_random.v && vvp sim/random.vvp
+# Overflow demonstration
+iverilog -g2012 -I rtl -o sim/ovf.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_array_3x3.v tb/tb_array_overflow_check.v && vvp sim/ovf.vvp
 ```
-
-### 4. Inspect Waveforms in GTKWave
-```bash
-make waves
-# or: gtkwave sim/tb_systolic_array_3x3.vcd
-```
+To regenerate the randomized test vectors: `python3 scripts/gen_array_vectors.py`.
 
 ---
 
@@ -130,7 +130,6 @@ make waves
 
 ```
 TensoraX/
-├── Makefile                     # Hardware build and simulation targets
 ├── README.md                    # Project documentation & specs
 ├── rtl/                         # Synthesizable Verilog RTL source files
 │   ├── tensora_pkg.vh           # Global architectural parameters & precision
@@ -139,40 +138,37 @@ TensoraX/
 │   └── systolic_array_3x3.v     # Top-level 2D systolic mesh grid
 ├── tb/                          # Self-checking verification testbenches
 │   ├── tb_pe.v                  # PE unit testbench
-│   └── tb_systolic_array_3x3.v  # Full 3x3 array verification harness
-├── scripts/                     # Automation & simulation runners
+│   ├── tb_systolic_array_3x3.v  # Directed 3x3 array testbench
+│   ├── tb_systolic_array_random.v  # Randomized array testbench
+│   ├── tb_array_overflow_check.v   # 32-bit accumulator wrap demonstration
+│   └── vectors/
+│       └── array_rand_vectors.hex  # Randomized test vectors
+├── scripts/                     # Automation & reference models
 │   ├── auto_sync.sh             # Background git collaboration sync daemon
 │   ├── pe_golden_model.py       # Python reference verification model
-│   ├── run_pe_sim.sh            # PE unit simulation script
-│   └── run_array_sim.sh         # Top-level array simulation script
-└── docs/                        # Architecture & academic reports
+│   ├── gen_array_vectors.py     # Regenerates the randomized test vectors
+│   └── run_pe_sim.sh            # PE unit simulation script
+└── docs/                        # Architecture & design documents
     ├── ARCHITECTURE.md          # Detailed microarchitecture spec
-    ├── PE_MICROARCHITECTURE.md  # Core PE datapath & timing analysis
-    ├── IEEE_Report_Draft.md     # Phase 1 IEEE project report draft
-    └── VIDEO_SCRIPT.md          # 5-minute video presentation script
+    └── PE_MICROARCHITECTURE.md  # Core PE datapath & timing analysis
 ```
 
 ---
 
 ## 🎯 Verification Results
 
-```
-================================================================================
-   [TensoraX] 3x3 SYSTOLIC ARRAY MATRIX MULTIPLICATION ACCELERATOR VERIFICATION   
-================================================================================
- Target Matrix A (3x3):         Target Matrix B (3x3):
- [  1   2   3 ]                 [  9   8   7 ]
- [  4   5   6 ]        x        [  6   5   4 ]
- [  7   8   9 ]                 [  3   2   1 ]
---------------------------------------------------------------------------------
- Computed Matrix C in 7 Clock Cycles:
- [   30    24    18 ]
- [   84    69    54 ]
- [  138   114    90 ]
---------------------------------------------------------------------------------
- >>> [STATUS: PASSED] All 9 Matrix Elements MATCH GOLDEN RESULT WITH 100% ACCURACY! <<<
-================================================================================
-```
+All results are from Icarus Verilog RTL simulation. No synthesis, area or timing results exist yet.
+
+| Testbench | Result |
+| :--- | :--- |
+| `tb_pe.v` (PE unit) | 0 errors |
+| `tb_systolic_array_3x3.v` (directed, 4 tests) | 0 errors; outputs settle 7 cycles (3N-2) after the first feed |
+| `tb_systolic_array_random.v` | 600 operations, 5,400 output checks, 0 errors |
+| `tb_array_overflow_check.v` | All operands -32768: C00 wraps to -1073741824 (see note below) |
+
+Reference case from the directed test: A = [1..9] times B = [9..1] gives C = [30 24 18; 84 69 54; 138 114 90].
+
+**Overflow note:** the 32-bit accumulator wraps when a dot product exceeds the signed 32-bit range (for example 3 x 2^30 with all operands at -32768). Results are correct only while every intermediate and final accumulation stays within the signed 32-bit range [-2^31, 2^31-1].
 
 ---
 
