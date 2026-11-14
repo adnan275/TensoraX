@@ -25,7 +25,7 @@ Traditional Von-Neumann architectures incur massive memory bandwidth overheads f
 | :--- | :--- | :--- |
 | **Array Topology** | $3 \times 3$ Orthogonal 2D Grid (9 PEs) | Modular, synthesizable, optimal for FPGA demonstration |
 | **Input Operand Width** | 16-bit Signed Two's Complement (`signed [15:0]`) | Balances dynamic range for neural activations/weights |
-| **Accumulator Width** | 32-bit Signed (`signed [31:0]`) | Completely prevents arithmetic overflow during dot products |
+| **Accumulator Width** | 32-bit Signed (`signed [31:0]`) | Holds any single product; extreme dot products can wrap (see PE_MICROARCHITECTURE.md) |
 | **Dataflow Paradigm** | Output-Stationary / Wavefront Propagation | Partial sums remain stationary in PEs, minimizing routing capacitance |
 | **Clocking & Timing** | Synchronous Single-Clock, Active-Low Reset (`rst_n`) | Standard synthesizable ASIC/FPGA digital design |
 | **Latency for $3 \times 3$ GEMM** | $3N - 2 = 7$ active computation cycles | Theoretical minimum for 2D systolic wavefront |
