@@ -36,14 +36,12 @@ class ProcessingElementModel:
         a_in = to_signed_16(a_in)
         b_in = to_signed_16(b_in)
         
-        # MAC Operation
         product = to_signed_32(a_in * b_in)
         if clr_acc:
             self.accumulator = product if mac_en else 0
         elif mac_en:
             self.accumulator = to_signed_32(self.accumulator + product)
 
-        # Spatial Forwarding Registers
         a_out = self.a_reg
         b_out = self.b_reg
         self.a_reg = a_in
@@ -66,7 +64,6 @@ def run_pe_golden_verification():
     pe = ProcessingElementModel()
 
     test_vectors = [
-        # (a_in, b_in, clr_acc, mac_en, description)
         (3, 4, True, True, "Vector 1: 3 x 4 -> Product=12, Acc=12"),
         (5, -2, False, True, "Vector 2: 5 x (-2) -> Product=-10, Acc=2"),
         (7, 6, False, True, "Vector 3: 7 x 6 -> Product=42, Acc=44"),
@@ -84,7 +81,7 @@ def run_pe_golden_verification():
         assert acc_val == expected_acc[idx], f"Mismatch at step {idx}"
 
     print("-----------------------------------------------------------------")
-    print(">>> [GOLDEN MODEL VERIFIED] 100% Match with Hardware Testbench tb_pe.v! <<<")
+    print(" [GOLDEN MODEL VERIFIED] 100% Match with Hardware Testbench tb_pe.v!")
     print("=================================================================")
 
 if __name__ == "__main__":

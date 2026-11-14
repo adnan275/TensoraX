@@ -1,15 +1,7 @@
 #!/bin/bash
-# ==============================================================================
-# Script: run_pe_sim.sh
-# Project: TensoraX - Systolic Array Matrix Multiplication Accelerator
-# Author: Adnan Rizvi (Lead Microarchitect & Core PE Datapath Engineer)
-# Description: Compiles and runs the Processing Element unit testbench using
-#              Icarus Verilog and generates VCD waveforms.
-# ==============================================================================
 
 set -e
 
-# Verify Icarus Verilog installation
 if ! command -v iverilog &> /dev/null; then
     echo "[ERROR] Icarus Verilog (iverilog) not found in PATH. Please install iverilog."
     exit 1
