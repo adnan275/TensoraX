@@ -2,18 +2,13 @@
 // File: tb_systolic_array_3x3.v
 // Project: TensoraX - Systolic Array Matrix Multiplication Accelerator
 // Author: Team TensoraX
-// Status: PROVISIONAL INTERFACE. The project docs (ARCHITECTURE.md, README)
-//         specify the dataflow (A westward per row, B northward per column,
-//         1-cycle skew per row/column, output-stationary) but do NOT define
-//         the array top-level's port names or bus packing. The DUT hookup
-//         below (a_rows/b_cols packed boundary buses, c_flat packed row-major
-//         result, valid_in/clr_acc/rst_n) is an assumption consistent with
-//         that dataflow. When the actual array RTL is merged, adapt the DUT
-//         instantiation and feed tasks to its real ports before reporting
-//         results; the check logic itself is interface-independent.
-//         The 7-cycle latency assertion assumes the existing pe.v (one
-//         registered forwarding hop per PE) and unregistered boundary
-//         injection; an extra boundary pipeline stage shifts it by one.
+// Interface: matches rtl/systolic_array_3x3.v (a_rows/b_cols packed boundary
+//         buses, c_flat packed row-major result, valid_in/clr_acc/rst_n).
+//         The 7-cycle latency check assumes pe.v (one registered forwarding
+//         hop per PE) and unregistered boundary injection; an extra boundary
+//         pipeline stage would shift it by one.
+// Run:    iverilog -g2012 -I rtl -o sim/array.vvp rtl/mac_unit.v rtl/pe.v \
+//                  rtl/systolic_array_3x3.v tb/tb_systolic_array_3x3.v && vvp sim/array.vvp
 // Description: Top-level self-checking testbench for the 3x3 systolic array.
 //              Feeds skewed activation/weight streams, computes a software
 //              golden reference inside the testbench, and compares all nine
