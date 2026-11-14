@@ -93,3 +93,17 @@ On modern 28nm/16nm FPGA nodes (e.g., AMD-Xilinx Artix-7 or UltraScale+), Tensor
 | **Accumulator Width** | 32-bit Signed | 24-bit Integer | 32-bit Float |
 | **Intermediate Memory Access** | **Zero (Spatial Routing)** | Zero (Spatial Routing) | High (Cache Hierarchy Traversal) |
 | **RTL Modularity** | Fully Synthesizable Verilog | Custom ASIC | Fixed Instruction Set Architecture |
+
+---
+
+## 6. Unit Verification & Test Vector Results
+
+The core Processing Element datapath is verified across directed arithmetic test cases via `tb/tb_pe.v` and cross-validated with `scripts/pe_golden_model.py`:
+
+| Test Vector | Inputs ($A, B$) | Control Signals | Computed Acc | Expected Acc | Verification Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Vector 1** | $A=3, B=4$ | `clr_acc=1, mac_en=1` | 12 (`0x0000000C`) | 12 | **PASS (Forwarding OK)** |
+| **Vector 2** | $A=5, B=-2$ | `clr_acc=0, mac_en=1` | 2 (`0x00000002`) | 2 | **PASS (Mixed signs)** |
+| **Vector 3** | $A=7, B=6$ | `clr_acc=0, mac_en=1` | 44 (`0x0000002C`) | 44 | **PASS (Accumulation)** |
+| **Vector 4** | $A=-8, B=-5$ | `clr_acc=1, mac_en=1` | 40 (`0x00000028`) | 40 | **PASS (Negative product)** |
+| **Vector 5** | $A=0, B=15$ | `clr_acc=0, mac_en=1` | 40 (`0x00000028`) | 40 | **PASS (Zero operand)** |
