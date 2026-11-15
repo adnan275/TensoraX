@@ -1,0 +1,35 @@
+[*] TensoraX T11 mid-operation reset - open with: gtkwave sim/tb_array_corner_cases.vcd docs/waveforms/tensorax_reset.gtkw
+[dumpfile] "sim/tb_array_corner_cases.vcd"
+[size] 1600 1000
+[pos] 0 0
+[sst_expanded] 0
+[signals_width] 330
+*-17.000000 3218000 3222000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+@200
+-Control
+@28
+tb_array_corner_cases.clk
+tb_array_corner_cases.rst_n
+tb_array_corner_cases.valid_in
+tb_array_corner_cases.clr_acc
+@200
+-West/north inputs
+@424
++{A row0} tb_array_corner_cases.dut.g_row[0].g_col[0].u_pe.a_in[15:0]
++{A row1} tb_array_corner_cases.dut.g_row[1].g_col[0].u_pe.a_in[15:0]
++{A row2} tb_array_corner_cases.dut.g_row[2].g_col[0].u_pe.a_in[15:0]
++{B col0} tb_array_corner_cases.dut.g_row[0].g_col[0].u_pe.b_in[15:0]
++{B col1} tb_array_corner_cases.dut.g_row[0].g_col[1].u_pe.b_in[15:0]
++{B col2} tb_array_corner_cases.dut.g_row[0].g_col[2].u_pe.b_in[15:0]
+@200
+-Accumulators: cleared by rst_n, then recomputed
+@424
++{C[0][0]} tb_array_corner_cases.dut.g_row[0].g_col[0].u_pe.c_out[31:0]
++{C[0][1]} tb_array_corner_cases.dut.g_row[0].g_col[1].u_pe.c_out[31:0]
++{C[0][2]} tb_array_corner_cases.dut.g_row[0].g_col[2].u_pe.c_out[31:0]
++{C[1][0]} tb_array_corner_cases.dut.g_row[1].g_col[0].u_pe.c_out[31:0]
++{C[1][1]} tb_array_corner_cases.dut.g_row[1].g_col[1].u_pe.c_out[31:0]
++{C[1][2]} tb_array_corner_cases.dut.g_row[1].g_col[2].u_pe.c_out[31:0]
++{C[2][0]} tb_array_corner_cases.dut.g_row[2].g_col[0].u_pe.c_out[31:0]
++{C[2][1]} tb_array_corner_cases.dut.g_row[2].g_col[1].u_pe.c_out[31:0]
++{C[2][2]} tb_array_corner_cases.dut.g_row[2].g_col[2].u_pe.c_out[31:0]

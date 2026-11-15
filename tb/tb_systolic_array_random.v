@@ -29,6 +29,13 @@ module tb_systolic_array_random;
 
     always #5 clk = ~clk;
 
+`ifdef TENSORAX_ASSERT
+    // Optional cycle-by-cycle invariant checker (compile with
+    // -DTENSORAX_ASSERT and add tb/array_assertions.v)
+    array_assertions #(.N(N), .DATA_WIDTH(DW), .ACC_WIDTH(AW)) u_chk (
+        .clk(clk), .rst_n(rst_n));
+`endif
+
     reg [31:0] mem [0:NOPS*REC-1];
     integer errors = 0, checked_outputs = 0, ops_with_noclr = 0, ops_back_to_back = 0;
     integer n, t, i, j, base, gap, noclr, g;
@@ -82,6 +89,10 @@ module tb_systolic_array_random;
         valid_in = 0; clr_acc = 0; a_rows = 0; b_cols = 0;
         $display("[random] operations           : %0d (%0d back-to-back, %0d without clr_acc)", NOPS, ops_back_to_back, ops_with_noclr);
         $display("[random] outputs checked      : %0d (9 per operation)", checked_outputs);
+`ifdef TENSORAX_ASSERT
+        u_chk.report;
+        errors = errors + u_chk.assert_fail;
+`endif
         if (errors == 0) $display(" [SUCCESS] randomized array verification: 0 errors");
         else             $display(" [FAILURE] randomized array verification: %0d errors", errors);
         $finish;

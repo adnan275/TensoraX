@@ -4,3 +4,4 @@ sim/*.vcd
 *.vcd
 *.vvp
 .DS_Store
+sim/*.log

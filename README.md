@@ -124,6 +124,13 @@ iverilog -g2012 -I rtl -o sim/ovf.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_array
 ```
 To regenerate the randomized test vectors: `python3 scripts/gen_array_vectors.py`.
 
+### 4. Full Regression, Corner Cases and Assertions
+```bash
+./scripts/run_all_tests.sh     # every testbench + assertion checker + Python model, PASS/FAIL table
+./scripts/mutation_check.sh    # injects 7 bugs into a temp copy of the RTL and confirms each is caught
+```
+Waveform views: `gtkwave sim/tb_systolic_array_3x3.vcd docs/waveforms/tensorax_array.gtkw`. Details in [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
+
 ---
 
 ## 📁 Repository Directory Structure
@@ -141,16 +148,22 @@ TensoraX/
 │   ├── tb_systolic_array_3x3.v  # Directed 3x3 array testbench
 │   ├── tb_systolic_array_random.v  # Randomized array testbench
 │   ├── tb_array_overflow_check.v   # 32-bit accumulator wrap demonstration
+│   ├── tb_array_corner_cases.v     # 13 corner-case and per-PE timing tests
+│   ├── array_assertions.v          # Cycle-by-cycle assertion checker (A1-A7)
 │   └── vectors/
 │       └── array_rand_vectors.hex  # Randomized test vectors
 ├── scripts/                     # Automation & reference models
 │   ├── auto_sync.sh             # Background git collaboration sync daemon
 │   ├── pe_golden_model.py       # Python reference verification model
 │   ├── gen_array_vectors.py     # Regenerates the randomized test vectors
-│   └── run_pe_sim.sh            # PE unit simulation script
+│   ├── run_pe_sim.sh            # PE unit simulation script
+│   ├── run_all_tests.sh         # One-command regression with PASS/FAIL table
+│   └── mutation_check.sh        # Bug-injection check of the test suite
 └── docs/                        # Architecture & design documents
     ├── ARCHITECTURE.md          # Detailed microarchitecture spec
-    └── PE_MICROARCHITECTURE.md  # Core PE datapath & timing analysis
+    ├── PE_MICROARCHITECTURE.md  # Core PE datapath & timing analysis
+    ├── VERIFICATION.md          # Verification plan, results and findings
+    └── waveforms/               # GTKWave save files and screenshots
 ```
 
 ---
@@ -165,6 +178,10 @@ All results are from Icarus Verilog RTL simulation. No synthesis, area or timing
 | `tb_systolic_array_3x3.v` (directed, 4 tests) | 0 errors; outputs settle 7 cycles (3N-2) after the first feed |
 | `tb_systolic_array_random.v` | 600 operations, 5,400 output checks, 0 errors |
 | `tb_array_overflow_check.v` | All operands -32768: C00 wraps to -1073741824 (see note below) |
+| `tb_array_corner_cases.v` | 13 / 13 tests pass (routing, extremes, overflow wrap, hold, mid-op reset, per-PE latency i+j+3) |
+| `array_assertions.v` | 422,316 checks across the directed, random and corner testbenches, 0 failures |
+| `mutation_check.sh` | 7 / 7 injected RTL bugs caught (original testbenches caught 4 / 7) |
+| GTKWave | Skew, diagonal wavefront and 7-cycle latency confirmed ([screenshots](docs/VERIFICATION.md#5-gtkwave-waveform-validation)) |
 
 Reference case from the directed test: A = [1..9] times B = [9..1] gives C = [30 24 18; 84 69 54; 138 114 90].
 

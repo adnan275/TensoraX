@@ -54,6 +54,13 @@ module tb_systolic_array_3x3;
     // 100 MHz clock
     always #5 clk = ~clk;
 
+`ifdef TENSORAX_ASSERT
+    // Optional cycle-by-cycle invariant checker (compile with
+    // -DTENSORAX_ASSERT and add tb/array_assertions.v)
+    array_assertions #(.N(N), .DATA_WIDTH(DATA_WIDTH), .ACC_WIDTH(ACC_WIDTH)) u_chk (
+        .clk(clk), .rst_n(rst_n));
+`endif
+
     integer errors = 0;
     integer i, j, k, t;
 
@@ -222,6 +229,10 @@ module tb_systolic_array_3x3;
         rst_n = 1;
 
         $display("-------------------------------------------------------------------");
+`ifdef TENSORAX_ASSERT
+        u_chk.report;
+        errors = errors + u_chk.assert_fail;
+`endif
         if (errors == 0)
             $display(" [SUCCESS] 3x3 systolic array verification completed with 0 errors!");
         else
