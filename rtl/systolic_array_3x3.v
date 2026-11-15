@@ -1,6 +1,7 @@
 // ============================================================================
 // File: systolic_array_3x3.v
 // Project: TensoraX - Systolic Array Matrix Multiplication Accelerator
+// Author: Praanshu Ranjan (Systolic Interconnect & 2D Grid Architect)
 // Description: 3x3 output-stationary systolic array. Instantiates N*N pe.v
 //              cells in an orthogonal mesh. Matrix A streams west-to-east
 //              along each row, matrix B streams north-to-south along each
