@@ -17,7 +17,9 @@ This report covers the TensoraX 3x3 systolic array (`systolic_array_3x3.v`, `pe.
 | Resource run | Yosys 0.71, `synth_xilinx -family xc7 -flatten`, synthesis only |
 | Timing run | Yosys `synth_ecp5` + nextpnr-ecp5 0.11.1, device LFE5U-85F, speed grade 6, out-of-context |
 
-Reproduce the Artix-7 resource run: put the RTL files and `tensora_pkg.vh` in one folder and run `yosys -s synth_yosys.ys`. Reproduce the timing run with `run_ecp5_timing.sh`. Full logs are in the package.
+Reproduction scripts, the source manifest, resource summaries and all three nextpnr timing logs are in [`synthesis/`](synthesis/). Copy `rtl/*.v`, `rtl/tensora_pkg.vh` and `docs/synthesis/*` from this repository into an empty working folder. In that folder, run `yosys -s synth_yosys.ys` for Artix-7 resource synthesis, or `sh run_ecp5_timing.sh` for the ECP5 timing test.
+
+The two full synthesis logs, `yosys_full_synth.log` and `yosys_ecp5_synth.log`, are not committed in this repository. They remain in the original complete `TensoraX_Synthesis_Package.zip` delivered privately, together with the same scripts and timing logs. Committed text logs preserve the recorded results; blank lines at the file boundaries may differ.
 
 ## 3. Resource utilization (Artix-7 family, Yosys)
 
