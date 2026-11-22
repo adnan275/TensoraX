@@ -1,0 +1,298 @@
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:       580/83640     0%
+Info:         logic LUTs:    292/83640     0%
+Info:         carry LUTs:    288/83640     0%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:       482/83640     0%
+
+Info: Packing IOs..
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     288 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info: Promoting globals...
+Info: Checksum: 0xb8f2c684
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       0/    365     0%
+Info: 	                DCCA:       0/     56     0%
+Info: 	              DP16KD:       0/    208     0%
+Info: 	          MULT18X18D:       9/    156     5%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       0/      4     0%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:     482/  83640     0%
+Info: 	        TRELLIS_COMB:     618/  83640     0%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 0 cells based on constraints.
+Info: Creating initial analytic placement for 506 cells, random placement wirelen = 91463.
+Info:     at initial placer iter 0, wirelen = 681
+Info:     at initial placer iter 1, wirelen = 388
+Info:     at initial placer iter 2, wirelen = 384
+Info:     at initial placer iter 3, wirelen = 432
+Info: Running main analytical placer, max placement attempts per cell = 153735.
+Info:     at iteration #1, type ALL: wirelen solved = 428, spread = 11767, legal = 13759; time = 0.03s
+Info:     at iteration #2, type ALL: wirelen solved = 522, spread = 7992, legal = 10240; time = 0.02s
+Info:     at iteration #3, type ALL: wirelen solved = 509, spread = 6415, legal = 9143; time = 0.02s
+Info:     at iteration #4, type ALL: wirelen solved = 523, spread = 6221, legal = 9002; time = 0.02s
+Info:     at iteration #5, type ALL: wirelen solved = 580, spread = 6952, legal = 9581; time = 0.02s
+Info:     at iteration #6, type ALL: wirelen solved = 772, spread = 6638, legal = 9295; time = 0.02s
+Info:     at iteration #7, type ALL: wirelen solved = 638, spread = 6426, legal = 8968; time = 0.02s
+Info:     at iteration #8, type ALL: wirelen solved = 644, spread = 6568, legal = 10080; time = 0.02s
+Info:     at iteration #9, type ALL: wirelen solved = 699, spread = 6731, legal = 9826; time = 0.02s
+Info:     at iteration #10, type ALL: wirelen solved = 682, spread = 6993, legal = 9630; time = 0.02s
+Info:     at iteration #11, type ALL: wirelen solved = 774, spread = 6245, legal = 10578; time = 0.02s
+Info:     at iteration #12, type ALL: wirelen solved = 751, spread = 5747, legal = 8775; time = 0.02s
+Info:     at iteration #13, type ALL: wirelen solved = 758, spread = 5535, legal = 9162; time = 0.02s
+Info:     at iteration #14, type ALL: wirelen solved = 835, spread = 6914, legal = 9857; time = 0.02s
+Info:     at iteration #15, type ALL: wirelen solved = 838, spread = 6087, legal = 9284; time = 0.02s
+Info:     at iteration #16, type ALL: wirelen solved = 801, spread = 5599, legal = 8565; time = 0.02s
+Info:     at iteration #17, type ALL: wirelen solved = 735, spread = 5651, legal = 10221; time = 0.02s
+Info:     at iteration #18, type ALL: wirelen solved = 854, spread = 5225, legal = 8740; time = 0.02s
+Info:     at iteration #19, type ALL: wirelen solved = 987, spread = 6390, legal = 9841; time = 0.02s
+Info:     at iteration #20, type ALL: wirelen solved = 993, spread = 6299, legal = 9147; time = 0.02s
+Info:     at iteration #21, type ALL: wirelen solved = 957, spread = 6567, legal = 10957; time = 0.02s
+Info: HeAP Placer Time: 0.53s
+Info:   of which solving equations: 0.32s
+Info:   of which spreading cells: 0.04s
+Info:   of which strict legalisation: 0.04s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 713, wirelen = 8565
+Info:   at iteration #5: temp = 0.000000, timing cost = 363, wirelen = 4487
+Info:   at iteration #10: temp = 0.000000, timing cost = 354, wirelen = 4105
+Info:   at iteration #15: temp = 0.000000, timing cost = 470, wirelen = 3969
+Info:   at iteration #20: temp = 0.000000, timing cost = 460, wirelen = 3947
+Info:   at iteration #21: temp = 0.000000, timing cost = 477, wirelen = 3940 
+Info: SA placement time 1.84s
+
+Info: Max frequency for clock 'clk': 100.10 MHz (FAIL at 200.00 MHz)
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ -4990,  -4528) |**************************+
+Info: [ -4528,  -4066) |************************************************************ 
+Info: [ -4066,  -3604) |****************************************************+
+Info: [ -3604,  -3142) |***********+
+Info: [ -3142,  -2680) | 
+Info: [ -2680,  -2218) |*+
+Info: [ -2218,  -1756) |***+
+Info: [ -1756,  -1294) | 
+Info: [ -1294,   -832) | 
+Info: [  -832,   -370) | 
+Info: [  -370,     92) | 
+Info: [    92,    554) | 
+Info: [   554,   1016) |*+
+Info: [  1016,   1478) |*************+
+Info: [  1478,   1940) |****************************+
+Info: [  1940,   2402) |**********************************+
+Info: [  2402,   2864) |**************************************************+
+Info: [  2864,   3326) |*************************+
+Info: [  3326,   3788) |********************+
+Info: [  3788,   4250) |*******************+
+Info: Checksum: 0xa4f3c43d
+Info: Routing globals...
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 2791 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      640        359 |  640   359 |      2557|       0.50       0.50|
+Info:       2000 |     1204        795 |  564   436 |      2300|       0.70       1.20|
+Info:       3000 |     1747       1252 |  543   457 |      1943|       1.07       2.27|
+Info:       4000 |     2035       1836 |  288   584 |      1283|       0.40       2.67|
+Info:       5000 |     2159       2692 |  124   856 |       410|       0.31       2.99|
+Info:       5437 |     2180       3095 |   21   403 |         0|       0.13       3.12|
+Info: Routing complete.
+Info: Router1 time 3.12s
+Info: Checksum: 0x4442dcf0
+
+Info: Critical path report for clock 'clk' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source g_row[1].g_col[2].u_pe.u_mac.product_MULT18X18D_P9_A17_TRELLIS_FF_Q.Q
+Info:    routing  1.44  1.96 Net g_row[1].g_col[2].u_pe.u_mac.product_MULT18X18D_P9_A17 (41,11) -> (41,10)
+Info:                          Sink g_row[1].g_col[2].u_pe.u_mac.product_MULT18X18D_P9.A15
+Info:      logic  3.93  5.89 Source g_row[1].g_col[2].u_pe.u_mac.product_MULT18X18D_P9.P6
+Info:    routing  2.12  8.01 Net c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D[1] (41,10) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.B
+Info:                          Defined in:
+Info:                               mac_unit.v:28.33-28.40
+Info:      logic  0.45  8.46 Source c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.46 Net c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.46 Source c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.46 Net c_flat_TRELLIS_FF_Q_103_DI_LUT4_Z_D_CCU2C_S0_COUT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.53 Source c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.53 Net c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.53 Source c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.53 Net c_flat_TRELLIS_FF_Q_105_DI_LUT4_Z_D_CCU2C_S0_COUT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.60 Source c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.60 Net c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.60 Source c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.60 Net c_flat_TRELLIS_FF_Q_107_DI_LUT4_Z_D_CCU2C_S0_COUT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.67 Source c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.67 Net c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (44,3) -> (44,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.67 Source c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.67 Net c_flat_TRELLIS_FF_Q_109_DI_LUT4_Z_D_CCU2C_S0_COUT (44,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.74 Source c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.74 Net c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.74 Source c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.74 Net c_flat_TRELLIS_FF_Q_111_DI_LUT4_Z_D_CCU2C_S0_COUT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.81 Source c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.81 Net c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.81 Source c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.81 Net c_flat_TRELLIS_FF_Q_113_DI_LUT4_Z_D_CCU2C_S0_COUT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.89 Source c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.89 Net c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.89 Source c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.89 Net c_flat_TRELLIS_FF_Q_115_DI_LUT4_Z_D_CCU2C_S0_COUT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  8.96 Source c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  8.96 Net c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (45,3) -> (45,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  8.96 Source c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  8.96 Net c_flat_TRELLIS_FF_Q_117_DI_LUT4_Z_D_CCU2C_S0_COUT (45,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.03 Source c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.03 Net c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.03 Source c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.03 Net c_flat_TRELLIS_FF_Q_119_DI_LUT4_Z_D_CCU2C_S0_COUT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.10 Source c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.10 Net c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.10 Source c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.10 Net c_flat_TRELLIS_FF_Q_121_DI_LUT4_Z_D_CCU2C_S0_COUT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.17 Source c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.17 Net c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0$CCU2_FCI_INT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.17 Source c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.17 Net c_flat_TRELLIS_FF_Q_123_DI_LUT4_Z_D_CCU2C_S0_COUT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               mac_unit.v:46.24-46.41
+Info:                               /share/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /share/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.24 Source c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.24 Net c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D_CCU2C_S1$CCU2_FCI_INT (46,3) -> (46,3)
+Info:                          Sink c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.40  9.64 Source c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D_CCU2C_S1$CCU2_COMB1.F
+Info:    routing  0.67  10.31 Net c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z_D[3] (46,3) -> (46,4)
+Info:                          Sink c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /share/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  10.55 Source c_flat_TRELLIS_FF_Q_126_DI_LUT4_Z.F
+Info:    routing  0.13  10.68 Net c_flat_TRELLIS_FF_Q_126_DI (46,4) -> (46,4)
+Info:                          Sink c_flat_TRELLIS_FF_Q_126.DI
+Info:      setup  0.00  10.68 Source c_flat_TRELLIS_FF_Q_126.DI
+Info: 6.32 ns logic, 4.36 ns routing
+
+ERROR: Max frequency for clock 'clk': 93.68 MHz (FAIL at 200.00 MHz)
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ -5675,  -5188) |**************************+
+Info: [ -5188,  -4701) |********************************************************+
+Info: [ -4701,  -4214) |*****************************************************+
+Info: [ -4214,  -3727) |****************+
+Info: [ -3727,  -3240) | 
+Info: [ -3240,  -2753) | 
+Info: [ -2753,  -2266) |***+
+Info: [ -2266,  -1779) |*+
+Info: [ -1779,  -1292) | 
+Info: [ -1292,   -805) | 
+Info: [  -805,   -318) | 
+Info: [  -318,    169) | 
+Info: [   169,    656) |*+
+Info: [   656,   1143) |*********+
+Info: [  1143,   1630) |********+
+Info: [  1630,   2117) |**********+
+Info: [  2117,   2604) |***********************************************+
+Info: [  2604,   3091) |************************************************************ 
+Info: [  3091,   3578) |********************************+
+Info: [  3578,   4065) |******************************+
+0 warnings, 1 error
+
+Info: Program finished normally.
