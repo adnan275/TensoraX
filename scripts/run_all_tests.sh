@@ -2,11 +2,10 @@
 # ==============================================================================
 # Script: run_all_tests.sh
 # Project: TensoraX - Systolic Array Matrix Multiplication Accelerator
-# Role: System Verification & Testbench Lead
 # Description: One-command regression. Compiles and runs every testbench with
 #              Icarus Verilog (array testbenches with the array_assertions
-#              checker enabled), runs the Python golden model, and prints a
-#              PASS/FAIL table. Exit code is non-zero if anything fails.
+#              checker enabled), runs the Python golden model and scaling models,
+#              and prints a PASS/FAIL table. Exit code is non-zero if anything fails.
 # Usage (repo root): ./scripts/run_all_tests.sh
 # Requires: iverilog/vvp (Icarus Verilog 11+), python3
 # ==============================================================================
@@ -50,6 +49,12 @@ if python3 scripts/pe_golden_model.py > sim/golden_model.log 2>&1 && grep -q "VE
     RESULTS+=("PASS | python_golden | PE reference model")
 else
     RESULTS+=("FAIL | python_golden | see sim/golden_model.log"); FAILS=$((FAILS+1))
+fi
+
+if python3 scripts/scaling_analysis.py > sim/scaling.log 2>&1 && python3 scripts/roofline_model.py > sim/roofline.log 2>&1; then
+    RESULTS+=("PASS | scaling_suite | analytical scaling and roofline models")
+else
+    RESULTS+=("FAIL | scaling_suite | see sim/scaling.log"); FAILS=$((FAILS+1))
 fi
 
 echo
