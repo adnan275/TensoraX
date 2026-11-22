@@ -15,11 +15,11 @@ Inspired by industry AI hardware architectures such as the **Google TPU (Tensor 
 
 | Member | Engineering Role | Core Contributions |
 | :--- | :--- | :--- |
-| **Adnan Rizvi** | **Lead Microarchitect & Core PE Datapath Engineer** | Designed 16-bit MAC arithmetic engine (`mac_unit.v`), spatial Processing Element (`pe.v`), datapath specifications, Python golden reference model, and PE verification suite. |
-| **Praanshu** | **Systolic Interconnect & 2D Grid Architect** | 2D mesh topology routing (`systolic_array_3x3.v`), horizontal activation and vertical weight interconnects, global reset & clear synchronization. |
-| **Anurag** | **System Verification & Testbench Lead** | Top-level self-checking verification testbench (`tb_systolic_array_3x3.v`), assertion checkers, corner-case testing, and GTKWave timing waveform validation. |
-| **Aditya Pal** | **Hardware Visualization & Prototype Demonstration Lead** | Architectural schematic diagrams, systolic wavefront propagation charts, and 5-minute Prototype Video demonstration production. |
-| **Aviral** | **Toolflow, Automation & Technical Documentation Lead** | Automated compilation tooling (`Makefile`, shell runners), IEEE Project Report formulation, and GitHub repository organization. |
+| **Adnan Rizvi** | **Lead Microarchitect & Core PE Datapath Engineer** | Designed 16-bit MAC arithmetic engine (`mac_unit.v`), spatial Processing Element (`pe.v`), datapath specifications, Python golden reference model, scaling analysis framework, and Roofline model. |
+| **Praanshu** | **Toolflow, Automation & Technical Documentation Lead** | Automated compilation tooling, software baseline benchmarking, and IEEE Project Report formulation. |
+| **Anurag** | **System Verification & Testbench Lead** | Top-level self-checking verification testbench, assertion checkers, corner-case testing, and GTKWave timing waveform validation. |
+| **Aditya Pal** | **Hardware Visualization & Prototype Demonstration Lead** | Architectural schematic diagrams, systolic wavefront propagation charts, comparative performance plots, and demonstration video production. |
+| **Aviral** | **Systolic Interconnect & 2D Grid Architect** | 2D mesh topology routing (`systolic_array_3x3.v`), horizontal activation and vertical weight interconnects, randomized testing, and hardware synthesis. |
 
 ---
 
@@ -89,6 +89,22 @@ A_in [15:0] ----------> [ A_reg (16-bit) ]      [ Multiplier ] (16x16 Signed)
 
 ---
 
+## 📊 Phase 2 Architectural Scaling & Roofline Analysis
+
+TensoraX incorporates an analytical scaling framework evaluating throughput, operational intensity, and external memory bandwidth reduction:
+
+### 1. Scaling Sweep Across Matrix Dimensions ($N \times N$)
+- Total computation latency: $T(N) = 3N - 2$ clock cycles.
+- Peak throughput: $N^2$ MACs/cycle.
+- Spatial reuse bandwidth reduction: $\frac{2N + 1}{3}\times$ less DRAM traffic compared to naive CPU execution.
+
+Run the scaling and Roofline analysis suite:
+```bash
+./scripts/run_scaling_suite.sh
+```
+
+---
+
 ## 🚀 Quickstart & Simulation Guide
 
 ### Prerequisites
@@ -122,14 +138,6 @@ iverilog -g2012 -I rtl -o sim/random.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_ar
 # Overflow demonstration
 iverilog -g2012 -I rtl -o sim/ovf.vvp rtl/mac_unit.v rtl/pe.v rtl/systolic_array_3x3.v tb/tb_array_overflow_check.v && vvp sim/ovf.vvp
 ```
-To regenerate the randomized test vectors: `python3 scripts/gen_array_vectors.py`.
-
-### 4. Full Regression, Corner Cases and Assertions
-```bash
-./scripts/run_all_tests.sh     # every testbench + assertion checker + Python model, PASS/FAIL table
-./scripts/mutation_check.sh    # injects 7 bugs into a temp copy of the RTL and confirms each is caught
-```
-Waveform views: `gtkwave sim/tb_systolic_array_3x3.vcd docs/waveforms/tensorax_array.gtkw`. Details in [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
 ---
 
@@ -156,12 +164,17 @@ TensoraX/
 │   ├── auto_sync.sh             # Background git collaboration sync daemon
 │   ├── pe_golden_model.py       # Python reference verification model
 │   ├── gen_array_vectors.py     # Regenerates the randomized test vectors
+│   ├── scaling_analysis.py      # Analytical N x N scaling framework
+│   ├── roofline_model.py        # Operational intensity & Roofline model
+│   ├── run_scaling_suite.sh     # Automated scaling & Roofline evaluation runner
 │   ├── run_pe_sim.sh            # PE unit simulation script
 │   ├── run_all_tests.sh         # One-command regression with PASS/FAIL table
 │   └── mutation_check.sh        # Bug-injection check of the test suite
 └── docs/                        # Architecture & design documents
     ├── ARCHITECTURE.md          # Detailed microarchitecture spec
     ├── PE_MICROARCHITECTURE.md  # Core PE datapath & timing analysis
+    ├── SCALING_ANALYSIS.md      # Latency bounds, bandwidth savings & Roofline
+    ├── MICROARCHITECTURE_DEFENSE.md # Critical path, DSP mapping & dataflow defense
     ├── VERIFICATION.md          # Verification plan, results and findings
     └── waveforms/               # GTKWave save files and screenshots
 ```
