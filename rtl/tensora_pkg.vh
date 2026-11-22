@@ -17,7 +17,9 @@
 `define ARRAY_SIZE      3       // 3x3 Processing Element Grid
 `define NUM_PES         (`ARRAY_SIZE * `ARRAY_SIZE) // 9 Processing Elements
 
-// Timing & Latency Configuration
+// Timing, Latency & Throughput Configuration
 `define COMPUTE_CYCLES  (3 * `ARRAY_SIZE - 2) // 7 cycles for 3x3 systolic wavefront
+`define TARGET_FREQ_MHZ 200                   // Nominal FPGA operating frequency target
+`define PEAK_OPS_PER_CYC (2 * `NUM_PES)       // 18 operations/cycle (9 MACs/cycle)
 
 `endif // TENSORA_PKG_VH
