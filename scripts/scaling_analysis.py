@@ -34,6 +34,13 @@ def compute_dram_traffic(n, bytes_per_elem=2):
     traffic_reduction_ratio = naive_cpu_bytes / systolic_bytes
     return naive_cpu_bytes, systolic_bytes, traffic_reduction_ratio
 
+def compute_streaming_efficiency(n, num_batches=10):
+    total_ops = num_batches * (n ** 3)
+    first_tile_latency = compute_systolic_latency(n)
+    steady_state_latency = first_tile_latency + (num_batches - 1) * n
+    total_pe_cycles = (n ** 2) * steady_state_latency
+    return (total_ops / total_pe_cycles) * 100.0
+
 def run_scaling_sweep(min_n=2, max_n=16):
     print("=========================================================================")
     print(" TensoraX Systolic Array Scaling Sweep: N x N Microarchitecture Bounds  ")
@@ -63,6 +70,16 @@ def run_bandwidth_sweep(min_n=2, max_n=8):
         print(f"{n:>3} | {cpu_b:>15,} | {sys_b:>20,} | {ratio:>15.2f}x")
     print("=========================================================================")
 
+def run_streaming_sweep(n=3):
+    print(f"\nPipelined Batch Streaming Efficiency (Grid Size N={n}):")
+    print(f"{'Batches':>7} | {'Pipelined Cycles':>16} | {'Effective Utilization':>22}")
+    print("-" * 50)
+    for b in [1, 5, 10, 50, 100]:
+        eff = compute_streaming_efficiency(n, num_batches=b)
+        cyc = compute_systolic_latency(n) + (b - 1) * n
+        print(f"{b:>7} | {cyc:>16} | {eff:>21.2f}%")
+
 if __name__ == "__main__":
     run_scaling_sweep()
     run_bandwidth_sweep()
+    run_streaming_sweep(3)
