@@ -22,3 +22,27 @@ A foundational architectural decision in 2D systolic computing is dataflow taxon
 In TensoraX, we selected the **Output-Stationary (OS)** dataflow:
 1. Accumulating intermediate partial products within local 32-bit registers eliminates long inter-PE routing wires for high-precision sums.
 2. In typical edge AI inferences ($N \le 16$), pre-loading overheads in Weight-Stationary arrays introduce latency bubbles; Output-Stationary streams both operands simultaneously with zero pre-load cycles.
+
+
+---
+
+## 2. Critical Path & FPGA DSP48 Slice Mapping
+
+### A. Critical Path Breakdown
+The critical path in each TensoraX Processing Element spans the register-to-register path through the arithmetic datapath:
+$$T_{\text{clk}} \ge T_{\text{clk-to-Q}} + T_{\text{mult}} + T_{\text{add}} + T_{\text{setup}}$$
+
+On AMD-Xilinx 28nm Artix-7 silicon:
+- $T_{\text{clk-to-Q}} \approx 0.35\text{ ns}$ (Slice Flip-Flop)
+- $T_{\text{DSP48E1}} \approx 2.40\text{ ns}$ (Integrated $18 \times 25$ multiplier + 48-bit accumulator)
+- $T_{\text{routing}} \approx 0.85\text{ ns}$ (Local interconnect)
+- $T_{\text{setup}} \approx 0.20\text{ ns}$
+- **Total Critical Path Delay:** $T_{\text{critical}} \approx 3.80\text{ ns}$
+- **Theoretical Maximum Operating Frequency ($F_{\max}$):**
+  $$F_{\max} = \frac{1}{T_{\text{critical}}} \approx \frac{1}{3.80\text{ ns}} \approx 263.15\text{ MHz}$$
+
+### B. DSP Mapping Strategy
+Because operands are 16-bit signed integers:
+- A single Xilinx DSP48E1 slice natively supports $25 \times 18$ signed multiplication and 48-bit accumulation.
+- TensoraX's $16 \times 16 \to 32$ operation maps **one-to-one** into a single DSP48E1 slice without requiring multi-slice cascading or soft-logic LUT multiplier trees.
+- For a $3 \times 3$ array, exactly 9 DSP slices are consumed, leaving over 90% of FPGA DSP resources free for system integration.
