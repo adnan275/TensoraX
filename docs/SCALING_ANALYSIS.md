@@ -76,3 +76,24 @@ $$\text{Reduction Ratio} = \frac{\text{Traffic}_{\text{CPU}}}{\text{Traffic}_{\t
 | **$N = 16$** | 16,896 B | 1,536 B | **11.00x** |
 
 This spatial data reuse directly circumvents the Von-Neumann memory-wall bottleneck, yielding massive power and latency reductions.
+
+
+---
+
+## 4. Roofline Model & Operational Intensity
+
+The Roofline Model provides an architectural framework relating system performance to operational intensity:
+$$\text{Attainable Performance [FLOPs/sec]} = \min\left(\text{Peak Performance}, \text{Peak Bandwidth} \times \text{Operational Intensity}\right)$$
+
+### Arithmetic Intensity ($I$):
+Operational intensity is defined as the ratio of arithmetic operations to external memory traffic:
+$$I(N) = \frac{\text{Total Arithmetic Operations [FLOPs]}}{\text{External Memory Traffic [Bytes]}} = \frac{2 N^3}{3 N^2 \times 2\text{ bytes}} = \frac{N}{3}\text{ FLOPs/Byte}$$
+
+- For $N = 3$:
+  $$I(3) = \frac{3}{3} = 1.0\text{ FLOP/Byte}$$
+- For $N = 16$:
+  $$I(16) = \frac{16}{3} \approx 5.33\text{ FLOPs/Byte}$$
+- For $N = 64$:
+  $$I(64) = \frac{64}{3} \approx 21.33\text{ FLOPs/Byte}$$
+
+As array dimension $N$ increases, TensoraX transitions rapidly from a memory-bandwidth-bound regime into a compute-bound saturation regime, maximizing silicon efficiency.
