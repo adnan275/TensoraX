@@ -60,7 +60,6 @@ def finish(fig, ax, name, legend_loc="upper left"):
     plt.close(fig)
 
 
-# ---- Fig. 1: cycles per N x N product, CPU (measured) vs TensoraX (3N-2) ----------------
 cpu_cyc = [r["cycles_per_matmul_median"] for r in sweep]
 hw_cyc = [3 * n - 2 for n in Ns]
 fig, ax = plt.subplots(figsize=(W, H))
@@ -73,7 +72,6 @@ ax.annotate("$N$=3 (this prototype)", xy=(3, cpu_cyc[1]), xytext=(3.4, 650),
             fontsize=6.8, color=INK, arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
 finish(fig, ax, "fig_cycles")
 
-# ---- Fig. 2: wall-clock time per product -------------------------------------------------
 cpu_ns = [r["ns_per_matmul_median"] for r in sweep]
 t_meas = [1000.0 * (3 * n - 2) / F_MEAS for n in Ns]
 t_targ = [1000.0 * (3 * n - 2) / F_TARGET for n in Ns]
@@ -90,7 +88,6 @@ ax.text(15.8, 22, "Hardware for $N\\neq3$ is a projection at the\n$N$=3 clock; o
         fontsize=6.2, color=MUTED, ha="right", va="bottom")
 finish(fig, ax, "fig_walltime")
 
-# ---- Fig. 3: external-memory traffic reduction ratio -------------------------------------
 adnan = [sa.compute_dram_traffic(n, 2)[2] for n in Ns]
 c32 = [(n + 1) / 2.0 for n in Ns]
 fig, ax = plt.subplots(figsize=(W, H))
@@ -103,7 +100,6 @@ ax.set_ylabel("Traffic, cache-less CPU / TensoraX")
 ax.set_ylim(0, 12.5)
 finish(fig, ax, "fig_traffic")
 
-# ---- Fig. 4: PE utilisation ---------------------------------------------------------------
 single = [sa.compute_pe_utilization(n) for n in Ns]
 pipe = [sa.compute_streaming_efficiency(n, num_batches=100) for n in Ns]
 fig, ax = plt.subplots(figsize=(W, H))

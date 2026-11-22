@@ -50,7 +50,6 @@ hw_ns_target = 1000.0 * HW / F_TARGET
 ver_ok = all(v["mismatches_generic"] == 0 and v["mismatches_fixed3"] == 0 for v in D["rtl_vector_verification"].values())
 v = D["rtl_vector_verification"]["o2"]
 
-# ---- environment -----------------------------------------------------------------------
 mac("CpuName", D["meta"]["cpu"])
 cc = re.search(r"(Apple clang version [0-9.]+|clang version [0-9.]+|gcc[^(]*[0-9.]+)", D["meta"]["compiler"])
 mac("CompilerName", cc.group(1) if cc else D["meta"]["compiler"])
@@ -64,7 +63,6 @@ mac("VecOutputs", f"{v['outputs_checked_per_kernel']:,}".replace(",", "{,}"))
 mac("VecRecords", v["records"])
 mac("VecMismatches", v["mismatches_generic"] + v["mismatches_fixed3"])
 
-# ---- headline / best / unoptimised -----------------------------------------------------
 mac("HeadCyc", f0(head["cycles_per_matmul_median"]))
 mac("HeadCycLo", f0(head["cycles_per_matmul_min"])); mac("HeadCycHi", f0(head["cycles_per_matmul_max"]))
 mac("HeadNs", f1(head["ns_per_matmul_median"]))
@@ -84,7 +82,6 @@ s_vals = [r["speedup_cycles_S"] for r in D["results_n3"]]
 mac("SLo", f1(min(s_vals))); mac("SHi", f1(max(s_vals)))
 mac("HwMacCyc", f2(27.0 / HW))
 
-# ---- wall clock ------------------------------------------------------------------------
 mac("FmaxLo", f2(F_MIN)); mac("FmaxHi", f2(F_MAX))
 mac("FmaxLoShort", f1(F_MIN))
 mac("FTarget", f0(F_TARGET))
@@ -98,7 +95,6 @@ mac("GflopsCpuHead", f1(54.0 / head["ns_per_matmul_median"]))
 mac("GflopsCpuBest", f1(54.0 / best["ns_per_matmul_median"]))
 mac("GflopsHwMeasured", f2(54.0 / hw_ns_min))
 mac("GflopsHwTarget", f2(54.0 / hw_ns_target))
-# HW clock ratio
 mac("ClockRatio", f0(1000.0 * head["est_ghz_median"] / F_MIN))
 
 
@@ -117,7 +113,6 @@ mac("SixteenHw", s16["hw_cycles"])
 mac("SweepThreeCyc", f0(sweep[1]["cycles_per_matmul_median"]))
 mac("SweepThreeS", f1(sweep[1]["speedup_cycles_S"]))
 
-# ---- utilisation / traffic (Adnan's model) --------------------------------------------
 mac("EtaThree", f1(sa.compute_pe_utilization(3)))
 mac("EtaLimit", f1(100.0 / 3))
 mac("EtaBatchHundred", f1(sa.compute_streaming_efficiency(3, 100)))
@@ -126,9 +121,6 @@ t3 = sa.compute_dram_traffic(3, 2)
 t16 = sa.compute_dram_traffic(16, 2)
 mac("TrafficRatioThree", f2(t3[2])); mac("TrafficRatioSixteen", f2(t16[2]))
 mac("TrafficRatioThreeBit", f1((3 + 1) / 2)); mac("TrafficRatioSixteenBit", f1((16 + 1) / 2))
-
-# ---- synthesis tables ------------------------------------------------------------------
-
 
 def parse_stat(path):
     counts, inside = {}, False
@@ -155,7 +147,6 @@ mac("XLutTwo", x7["LUT2"]); mac("XLutFour", x7["LUT4"]); mac("XLutFive", x7["LUT
 mac("EMult", ec["MULT18X18D"]); mac("ECarry", ec["CCU2C"]); mac("ELut", ec["LUT4"]); mac("EFF", ec["TRELLIS_FF"])
 mac("FmaxSeedOne", f2(fmax["1"])); mac("FmaxSeedTwo", f2(fmax["2"])); mac("FmaxSeedThree", f2(fmax["3"]))
 
-# ---- Table: CPU vs TensoraX at N = 3 ---------------------------------------------------
 rows = []
 for variant, vl in (("o0", "-O0"), ("o2", "-O2"), ("o3", "-O3")):
     for kernel, kl in (("generic", "generic"), ("fixed3", "fixed-3")):
@@ -165,7 +156,6 @@ for variant, vl in (("o0", "-O0"), ("o2", "-O2"), ("o3", "-O3")):
                     f"{l['cycles_per_matmul_median']:.0f} & {l['speedup_cycles_S']:.1f} \\\\")
 out.append("\\newcommand{\\TableCpuRows}{" + "\n".join(rows) + "}")
 
-# ---- Table: traffic --------------------------------------------------------------------
 rows = []
 for n in (2, 3, 4, 8, 16):
     cpu_b, sys_b, ratio = sa.compute_dram_traffic(n, 2)
