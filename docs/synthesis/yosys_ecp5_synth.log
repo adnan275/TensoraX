@@ -1,0 +1,1904 @@
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71 (git sha1 b4c586fd3, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Running command `read_verilog -sv -I. mac_unit.v pe.v systolic_array_3x3.v; hierarchy -top systolic_array_3x3; synth_ecp5 -top systolic_array_3x3 -json core_ecp5.json -abc9; tee -o ecp5_stat.txt stat' --
+
+1. Executing Verilog-2005 frontend: mac_unit.v
+Parsing SystemVerilog input from `mac_unit.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: pe.v
+Parsing SystemVerilog input from `pe.v' to AST representation.
+Generating RTLIL representation for module `\pe'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: systolic_array_3x3.v
+Parsing SystemVerilog input from `systolic_array_3x3.v' to AST representation.
+Generating RTLIL representation for module `\systolic_array_3x3'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     \pe
+Used module:         \mac_unit
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mac_unit'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Generating RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+
+4.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Generating RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Reprocessing module systolic_array_3x3 because instantiated module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe has become available.
+Generating RTLIL representation for module `\systolic_array_3x3'.
+
+4.4. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     \pe
+Used module:         $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe'.
+
+4.5. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe
+Used module:         \mac_unit
+Parameter \DATA_WIDTH = 16
+Parameter \ACC_WIDTH = 32
+Found cached RTLIL representation for module `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit'.
+
+4.6. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe
+Used module:         $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit
+
+4.7. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe
+Used module:         $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit
+Removing unused module `\pe'.
+Removing unused module `\mac_unit'.
+Removed 2 unused modules.
+
+5. Executing SYNTH_LATTICE pass.
+
+5.1. Executing Verilog-2005 frontend: /share/lattice/cells_sim_ecp5.v
+Parsing Verilog input from `/share/lattice/cells_sim_ecp5.v' to AST representation.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\L6MUX21'.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Generating RTLIL representation for module `\PFUMX'.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Generating RTLIL representation for module `\DPR16X4C'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Generating RTLIL representation for module `\VLO'.
+Generating RTLIL representation for module `\VHI'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\CCU2C'.
+Generating RTLIL representation for module `\DP16KD'.
+Successfully finished Verilog frontend.
+
+5.2. Executing Verilog-2005 frontend: /share/lattice/cells_bb_ecp5.v
+Parsing Verilog input from `/share/lattice/cells_bb_ecp5.v' to AST representation.
+Generating RTLIL representation for module `\GSR'.
+Generating RTLIL representation for module `\PUR'.
+Generating RTLIL representation for module `\SGSR'.
+Generating RTLIL representation for module `\PDPW16KD'.
+Generating RTLIL representation for module `\MULT18X18D'.
+Generating RTLIL representation for module `\ALU54B'.
+Generating RTLIL representation for module `\CLKDIVF'.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Generating RTLIL representation for module `\DCSC'.
+Generating RTLIL representation for module `\DCCA'.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Generating RTLIL representation for module `\DELAYF'.
+Generating RTLIL representation for module `\DELAYG'.
+Generating RTLIL representation for module `\USRMCLK'.
+Generating RTLIL representation for module `\DQSBUFM'.
+Generating RTLIL representation for module `\DDRDLLA'.
+Generating RTLIL representation for module `\DLLDELD'.
+Generating RTLIL representation for module `\IDDRX1F'.
+Generating RTLIL representation for module `\IDDRX2F'.
+Generating RTLIL representation for module `\IDDR71B'.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX1F'.
+Generating RTLIL representation for module `\ODDRX2F'.
+Generating RTLIL representation for module `\ODDR71B'.
+Generating RTLIL representation for module `\OSHX2A'.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Generating RTLIL representation for module `\EHXPLLL'.
+Generating RTLIL representation for module `\DTR'.
+Generating RTLIL representation for module `\OSCG'.
+Generating RTLIL representation for module `\EXTREFB'.
+Generating RTLIL representation for module `\JTAGG'.
+Generating RTLIL representation for module `\DCUA'.
+Successfully finished Verilog frontend.
+
+5.3. Executing HIERARCHY pass (managing design hierarchy).
+
+5.3.1. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe
+Used module:         $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit
+
+5.3.2. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Used module:     $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe
+Used module:         $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit
+Removed 0 unused modules.
+
+5.4. Executing PROC pass (convert processes to netlists).
+
+5.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $pe.v:45$proc$20 in module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.
+Marked 3 switch rules as full_case in process $mac_unit.v:36$proc$17 in module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.
+Removed a total of 0 dead cases.
+
+5.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 36 assignments to connections.
+
+5.4.4. Executing PROC_INIT pass (extract init attributes).
+
+5.4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+Found async reset \rst_n in `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.$mac_unit.v:36$proc$17'.
+
+5.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+5.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+     1/3: $0\valid_out[0:0]
+     2/3: $0\b_out[15:0]
+     3/3: $0\a_out[15:0]
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$120'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$119'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$118'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$117'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$116'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$115'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$114'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$113'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$112'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$111'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$110'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$109'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$108'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$107'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$106'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$105'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$104'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$103'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$102'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$101'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$100'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$99'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$98'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$97'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$96'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$95'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$94'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$93'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$92'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$91'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$90'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$89'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$88'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$87'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$86'.
+Creating decoders for process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$85'.
+Creating decoders for process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.$mac_unit.v:36$proc$17'.
+     1/1: $0\acc_out[31:0]
+
+5.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\systolic_array_3x3.\v_link[11]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$120'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[11]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$119'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[11]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$118'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[10]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$117'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[10]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$116'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[10]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$115'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[9]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$114'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[9]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$113'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[9]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$112'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[7]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$111'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[8]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$110'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[7]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$109'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[6]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$108'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[7]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$107'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[6]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$106'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[5]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$105'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[6]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$104'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[5]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$103'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[3]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$102'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[5]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$101'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[3]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$100'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[2]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$99'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[4]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$98'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[2]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$97'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[1]' from process `\systolic_array_3x3.$systolic_array_3x3.v:77$proc$96'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[3]' from process `\systolic_array_3x3.$systolic_array_3x3.v:76$proc$95'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[1]' from process `\systolic_array_3x3.$systolic_array_3x3.v:75$proc$94'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[2]' from process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$93'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[1]' from process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$92'.
+No latch inferred for signal `\systolic_array_3x3.\b_link[0]' from process `\systolic_array_3x3.$systolic_array_3x3.v:59$proc$91'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[8]' from process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$90'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[8]' from process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$89'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[4]' from process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$88'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[4]' from process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$87'.
+No latch inferred for signal `\systolic_array_3x3.\v_link[0]' from process `\systolic_array_3x3.$systolic_array_3x3.v:56$proc$86'.
+No latch inferred for signal `\systolic_array_3x3.\a_link[0]' from process `\systolic_array_3x3.$systolic_array_3x3.v:55$proc$85'.
+
+5.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.\a_out' using process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+  created $adff cell `$procdff$358' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.\b_out' using process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+  created $adff cell `$procdff$363' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.\valid_out' using process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+  created $adff cell `$procdff$368' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.\acc_out' using process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.$mac_unit.v:36$proc$17'.
+  created $adff cell `$procdff$373' with positive edge clock and positive level reset.
+
+5.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.$pe.v:45$proc$20'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$120'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$119'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$118'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$117'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$116'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$115'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$114'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$113'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$112'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$111'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$110'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$109'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$108'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$107'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$106'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$105'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$104'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$103'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$102'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$101'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$100'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$99'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$98'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$97'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:77$proc$96'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:76$proc$95'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:75$proc$94'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:59$proc$93'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:59$proc$92'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:59$proc$91'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:56$proc$90'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:55$proc$89'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:56$proc$88'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:55$proc$87'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:56$proc$86'.
+Removing empty process `systolic_array_3x3.$systolic_array_3x3.v:55$proc$85'.
+Found and cleaned up 3 empty switches in `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.$mac_unit.v:36$proc$17'.
+Removing empty process `$paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.$mac_unit.v:36$proc$17'.
+Cleaned up 3 empty switches.
+
+5.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.
+<suppressed ~6 debug messages>
+Optimizing module systolic_array_3x3.
+Optimizing module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.
+<suppressed ~2 debug messages>
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe...
+Checking module systolic_array_3x3...
+Checking module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit...
+Found and reported 0 problems.
+
+5.6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\pe.
+Deleting now unused module $paramod$c90708c2091c5deb0a68d048d1310494f86784d2\mac_unit.
+<suppressed ~10 debug messages>
+
+5.7. Executing TRIBUF pass.
+
+5.8. Executing DEMINOUT pass (demote inout ports to input or output).
+
+5.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.10. Executing CHECK pass (checking for obvious problems).
+Checking module systolic_array_3x3...
+Found and reported 0 problems.
+
+5.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 63 unused cells and 288 unused wires.
+<suppressed ~91 debug messages>
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 90 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Computing hashes of 88 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Computing hashes of 86 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+5.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 86 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.12.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.13. Executing FSM pass (extract and optimize FSM).
+
+5.13.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.13.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.13.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.13.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.13.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.13.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.13.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.13.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+5.14. Executing OPT pass (performing simple optimizations).
+
+5.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 86 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 86 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $flatten\g_row[0].g_col[0].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[0].g_col[0].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[0].g_col[0].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[2].g_col[2].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[2].g_col[2].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[2].g_col[2].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[0].g_col[1].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[0].g_col[1].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[0].g_col[1].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[1].g_col[2].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[1].g_col[2].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[1].g_col[2].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[2].g_col[0].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[2].g_col[0].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[2].g_col[0].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[0].g_col[2].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[0].g_col[2].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[0].g_col[2].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[1].g_col[0].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[1].g_col[0].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[1].g_col[0].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[2].g_col[1].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[2].g_col[1].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[2].g_col[1].u_pe.u_mac.acc_out).
+Adding EN signal on $flatten\g_row[1].g_col[1].u_pe.\u_mac.$procdff$373 ($adff) from module systolic_array_3x3 (D = $flatten\g_row[1].g_col[1].u_pe.\u_mac.$0\acc_out[31:0], Q = \g_row[1].g_col[1].u_pe.u_mac.acc_out).
+
+5.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+<suppressed ~9 debug messages>
+
+5.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 95 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Computing hashes of 89 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+5.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+5.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.14.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.14.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.14.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.14.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 89 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.14.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.14.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.14.23. Finished fast OPT passes. (There is nothing left to do.)
+
+5.15. Executing WREDUCE pass (reducing word size of cells).
+
+5.16. Executing PEEPOPT pass (run peephole optimizers).
+
+5.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.18. Executing SHARE pass (SAT-based resource sharing).
+Found 9 cells in module systolic_array_3x3 that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \valid_in.
+    Found 8 candidates: $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \valid_in = 1'1
+    Analyzing resource sharing with $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \valid_in = 1'1
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+    Found 7 candidates: $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+    Analyzing resource sharing with $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+    Found 6 candidates: $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+  Analyzing resource sharing options for $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \valid_in.
+    Found 5 candidates: $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \valid_in = 1'1
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+    Found 4 candidates: $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+    Found 3 candidates: $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \valid_in.
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 5 variables, 9 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+  Analyzing resource sharing options for $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \valid_in.
+    Found 2 candidates: $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[0].u_pe.valid_out \valid_in } = 2'11
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:29$mul$16: \valid_in = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \valid_in } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[0].u_pe.valid_out.
+    Found 1 candidates: $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16
+    Analyzing resource sharing with $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+      Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+      Activation pattern for cell $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[0].u_pe.valid_out = 1'1
+      Activation pattern for cell $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16: \g_row[1].g_col[1].u_pe.valid_out = 1'1
+      Size of SAT problem: 0 cells, 12 variables, 27 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \g_row[1].g_col[1].u_pe.valid_out \g_row[1].g_col[0].u_pe.valid_out } = 2'11
+  Analyzing resource sharing options for $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:29$mul$16 ($mul):
+    Found 1 activation_patterns using ctrl signal \g_row[1].g_col[1].u_pe.valid_out.
+    No candidates found.
+
+5.19. Executing TECHMAP pass (map to technology primitives).
+
+5.19.1. Executing Verilog-2005 frontend: /share/cmp2lut.v
+Parsing Verilog input from `/share/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+5.19.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+5.20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.22. Executing TECHMAP pass (map to technology primitives).
+
+5.22.1. Executing Verilog-2005 frontend: /share/mul2dsp.v
+Parsing Verilog input from `/share/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+5.22.2. Continuing TECHMAP pass.
+Using template $paramod$98b5abf51e25760e7ff42b5f29b6a0813dd63380\_80_mul for cells of type $mul.
+No more expansions possible.
+<suppressed ~78 debug messages>
+
+5.23. Executing TECHMAP pass (map to technology primitives).
+
+5.23.1. Executing Verilog-2005 frontend: /share/lattice/dsp_map_18x18.v
+Parsing Verilog input from `/share/lattice/dsp_map_18x18.v' to AST representation.
+Generating RTLIL representation for module `$__MUL18X18'.
+Successfully finished Verilog frontend.
+
+5.23.2. Continuing TECHMAP pass.
+Using template $paramod$c323049b3a09641e040ac6dc45a727e0aaf653a8$__MUL18X18 for cells of type $__MUL18X18.
+No more expansions possible.
+<suppressed ~29 debug messages>
+
+5.24. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module systolic_array_3x3:
+  creating $macc model for $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19 ($add).
+  creating $alu model for $macc $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu model for $macc $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19.
+  creating $alu cell for $flatten\g_row[2].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$429
+  creating $alu cell for $flatten\g_row[1].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$432
+  creating $alu cell for $flatten\g_row[2].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$435
+  creating $alu cell for $flatten\g_row[1].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$438
+  creating $alu cell for $flatten\g_row[2].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$441
+  creating $alu cell for $flatten\g_row[0].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$444
+  creating $alu cell for $flatten\g_row[0].g_col[1].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$447
+  creating $alu cell for $flatten\g_row[1].g_col[2].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$450
+  creating $alu cell for $flatten\g_row[0].g_col[0].u_pe.\u_mac.$mac_unit.v:46$add$19: $auto$alumacc.cc:578:replace_alu$453
+  created 9 $alu and 0 $macc cells.
+
+5.25. Executing OPT pass (performing simple optimizations).
+
+5.25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 89 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.25.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.25.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.25.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 89 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.25.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.25.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 0 unused cells and 72 unused wires.
+<suppressed ~1 debug messages>
+
+5.25.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.25.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.25.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+5.25.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.25.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 89 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.25.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.25.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.25.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.25.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.26. Executing MEMORY pass.
+
+5.26.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+5.26.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+5.26.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+5.26.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+5.26.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5.26.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.26.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+5.26.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+5.26.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.26.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.27. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.28. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+
+5.29. Executing TECHMAP pass (map to technology primitives).
+
+5.29.1. Executing Verilog-2005 frontend: /share/lattice/lutrams_map_trellis.v
+Parsing Verilog input from `/share/lattice/lutrams_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$__TRELLIS_DPR16X4_'.
+Successfully finished Verilog frontend.
+
+5.29.2. Executing Verilog-2005 frontend: /share/lattice/brams_map_16kd.v
+Parsing Verilog input from `/share/lattice/brams_map_16kd.v' to AST representation.
+Generating RTLIL representation for module `$__DP16KD_'.
+Generating RTLIL representation for module `$__PDPW16KD_'.
+Successfully finished Verilog frontend.
+
+5.29.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+5.30. Executing OPT pass (performing simple optimizations).
+
+5.30.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+<suppressed ~9 debug messages>
+
+5.30.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 80 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.30.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.30.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+5.30.5. Finished fast OPT passes.
+
+5.31. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5.32. Executing OPT pass (performing simple optimizations).
+
+5.32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 80 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.32.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+5.32.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.32.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 80 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.32.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.32.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.32.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.32.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.33. Executing TECHMAP pass (map to technology primitives).
+
+5.33.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.33.2. Executing Verilog-2005 frontend: /share/lattice/arith_map_ccu2c.v
+Parsing Verilog input from `/share/lattice/arith_map_ccu2c.v' to AST representation.
+Generating RTLIL representation for module `\_80_ccu2c_alu'.
+Successfully finished Verilog frontend.
+
+5.33.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_80_ccu2c_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+No more expansions possible.
+<suppressed ~768 debug messages>
+
+5.34. Executing OPT pass (performing simple optimizations).
+
+5.34.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+<suppressed ~306 debug messages>
+
+5.34.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 2366 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.34.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.34.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 1134 unused cells and 750 unused wires.
+<suppressed ~1135 debug messages>
+
+5.34.5. Finished fast OPT passes.
+
+5.35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.36. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+
+5.37. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 1714 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Computing hashes of 1233 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+<suppressed ~1443 debug messages>
+Removed a total of 481 cells.
+
+5.38. Executing TECHMAP pass (map to technology primitives).
+
+5.38.1. Executing Verilog-2005 frontend: /share/lattice/cells_map_trellis.v
+Parsing Verilog input from `/share/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NN_'.
+Generating RTLIL representation for module `$_DFFE_PN_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_DFFE_NP0N_'.
+Generating RTLIL representation for module `$_DFFE_NP1N_'.
+Generating RTLIL representation for module `$_DFFE_PP0N_'.
+Generating RTLIL representation for module `$_DFFE_PP1N_'.
+Generating RTLIL representation for module `$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `$_ALDFF_NP_'.
+Generating RTLIL representation for module `$_ALDFF_PP_'.
+Generating RTLIL representation for module `$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+5.38.2. Continuing TECHMAP pass.
+Using template $_DFF_PP0_ for cells of type $_DFF_PP0_.
+Using template $_DFFE_PP0P_ for cells of type $_DFFE_PP0P_.
+No more expansions possible.
+<suppressed ~553 debug messages>
+
+5.39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.40. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+5.41. Executing LATTICE_GSR pass (implement FF init values).
+Handling GSR in systolic_array_3x3.
+
+5.42. Executing ATTRMVCP pass (move or copy attributes).
+
+5.43. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 0 unused cells and 3179 unused wires.
+<suppressed ~1 debug messages>
+
+5.44. Executing CHECK pass (checking for obvious problems).
+Checking module systolic_array_3x3...
+Found and reported 0 problems.
+
+5.45. Executing TECHMAP pass (map to technology primitives).
+
+5.45.1. Executing Verilog-2005 frontend: /share/lattice/latches_map.v
+Parsing Verilog input from `/share/lattice/latches_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+5.45.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+5.46. Executing ABC9 pass.
+
+5.46.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.3. Executing PROC pass (convert processes to netlists).
+
+5.46.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.46.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/share/lattice/common_sim.vh:282$proc$4481 in module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+Removed a total of 0 dead cases.
+
+5.46.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+5.46.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4482'.
+  Set init value: \Q = 1'0
+
+5.46.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \muxlsr in `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4481'.
+
+5.46.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+5.46.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4482'.
+Creating decoders for process `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4481'.
+     1/1: $0\Q[0:0]
+
+5.46.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.46.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.\Q' using process `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4481'.
+  created $adff cell `$procdff$4487' with positive edge clock and positive level reset.
+
+5.46.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.46.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4482'.
+Found and cleaned up 1 empty switch in `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4481'.
+Removing empty process `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4481'.
+Cleaned up 1 empty switch.
+
+5.46.4. Executing PROC pass (convert processes to netlists).
+
+5.46.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.46.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/share/lattice/common_sim.vh:282$proc$4505 in module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+Removed a total of 0 dead cases.
+
+5.46.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+5.46.4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4506'.
+  Set init value: \Q = 1'0
+
+5.46.4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \muxlsr in `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4505'.
+
+5.46.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+5.46.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4506'.
+Creating decoders for process `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4505'.
+     1/1: $0\Q[0:0]
+
+5.46.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.46.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.\Q' using process `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4505'.
+  created $adff cell `$procdff$4511' with positive edge clock and positive level reset.
+
+5.46.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.46.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:278$proc$4506'.
+Found and cleaned up 1 empty switch in `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4505'.
+Removing empty process `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.$/share/lattice/common_sim.vh:282$proc$4505'.
+Cleaned up 1 empty switch.
+
+5.46.5. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module systolic_array_3x3.
+Found 0 SCCs.
+
+5.46.6. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.7. Executing TECHMAP pass (map to technology primitives).
+
+5.46.7.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.46.7.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~170 debug messages>
+
+5.46.8. Executing OPT pass (performing simple optimizations).
+
+5.46.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+Optimizing module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+
+5.46.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Computing hashes of 2 cells of `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Finding duplicate cells in `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Finding identical cells in module `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Computing hashes of 2 cells of `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Finding duplicate cells in `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Removed a total of 0 cells.
+
+5.46.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.46.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+  Optimizing cells in module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+Performed a total of 0 changes.
+
+5.46.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Computing hashes of 2 cells of `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Finding duplicate cells in `$paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF'.
+Finding identical cells in module `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Computing hashes of 2 cells of `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Finding duplicate cells in `$paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF'.
+Removed a total of 0 cells.
+
+5.46.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.46.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF..
+Finding unused cells or wires in module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF..
+
+5.46.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+Optimizing module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+
+5.46.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.46.9. Executing TECHMAP pass (map to technology primitives).
+
+5.46.9.1. Executing Verilog-2005 frontend: /share/abc9_map.v
+Parsing Verilog input from `/share/abc9_map.v' to AST representation.
+Lexer warning: The SystemVerilog keyword `bit' (at /share/abc9_map.v:35) is not recognized unless read_verilog is called with -sv!
+Generating RTLIL representation for module `$__ABC9_BARRIER_MAP'.
+Successfully finished Verilog frontend.
+
+5.46.9.2. Continuing TECHMAP pass.
+Using template $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF for cells of type $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+Using template $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF for cells of type $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+No more expansions possible.
+<suppressed ~487 debug messages>
+
+5.46.10. Executing Verilog-2005 frontend: /share/abc9_model.v
+Parsing Verilog input from `/share/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+5.46.11. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+5.46.12. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.13. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+5.46.14. Executing TECHMAP pass (map to technology primitives).
+
+5.46.14.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.46.14.2. Continuing TECHMAP pass.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\LUT2\INIT=4'1010 for cells of type LUT2.
+Using template $paramod\LUT4\INIT=16'1001011010101010 for cells of type LUT4.
+Using extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~208 debug messages>
+
+5.46.15. Executing OPT pass (performing simple optimizations).
+
+5.46.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+<suppressed ~18 debug messages>
+
+5.46.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 59 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Computing hashes of 57 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+5.46.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.46.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.46.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 57 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.46.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.46.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+Removed 0 unused cells and 55 unused wires.
+<suppressed ~1 debug messages>
+
+5.46.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.46.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.46.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \systolic_array_3x3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.46.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \systolic_array_3x3.
+Performed a total of 0 changes.
+
+5.46.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\systolic_array_3x3'.
+Computing hashes of 57 cells of `\systolic_array_3x3'.
+Finding duplicate cells in `\systolic_array_3x3'.
+Removed a total of 0 cells.
+
+5.46.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.46.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \systolic_array_3x3..
+
+5.46.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module systolic_array_3x3.
+
+5.46.15.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.46.16. Executing AIGMAP pass (map logic to AIG).
+Module systolic_array_3x3: replaced 579 cells with 4044 new cells, skipped 1136 cells.
+  replaced 2 cell types:
+     576 $_MUX_
+       3 $_OR_
+  not replaced 8 cell types:
+       1 $_NOT_
+      18 $scopeinfo
+       9 MULT18X18D
+     288 $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF
+     144 $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C
+     194 $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF
+     288 $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF_$abc9_byp
+     194 $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF_$abc9_byp
+
+5.46.16.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.16.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+5.46.16.3. Executing XAIGER2 backend.
+<suppressed ~1271 debug messages>
+Extracted 2976 AND gates and 0 wires from module `systolic_array_3x3' to a netlist network with 1820 inputs and 4894 outputs.
+
+5.46.16.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+5.46.16.5. Executing ABC9.
+Running ABC command: "/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+
+5.46.16.6. Executing AIGER frontend.
+<suppressed ~10 debug messages>
+Removed 1516 unused cells and 6370 unused wires.
+
+5.46.16.7. Executing ABC_OPS_REINTEGRATE pass (reintegrate ABC mapped design into module).
+ABC RESULTS:              $lut cells:      292
+ABC RESULTS:   $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C cells:      144
+ABC RESULTS:   $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF_$abc9_byp cells:      288
+ABC RESULTS:   $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF_$abc9_byp cells:      194
+ABC RESULTS:           input signals:      537
+ABC RESULTS:          output signals:        1
+<suppressed ~3540 debug messages>
+Removing temp directory.
+
+5.46.17. Executing TECHMAP pass (map to technology primitives).
+
+5.46.17.1. Executing Verilog-2005 frontend: /share/abc9_unmap.v
+Parsing Verilog input from `/share/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Successfully finished Verilog frontend.
+
+5.46.17.2. Continuing TECHMAP pass.
+Using template $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF for cells of type $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF.
+Using template $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF_$abc9_byp for cells of type $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF_$abc9_byp.
+Using template $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF for cells of type $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF.
+Using template $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF_$abc9_byp for cells of type $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF_$abc9_byp.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+No more expansions possible.
+<suppressed ~1119 debug messages>
+Removed 291 unused cells and 13042 unused wires.
+
+5.47. Executing TECHMAP pass (map to technology primitives).
+
+5.47.1. Executing Verilog-2005 frontend: /share/lattice/cells_map_trellis.v
+Parsing Verilog input from `/share/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NN_'.
+Generating RTLIL representation for module `$_DFFE_PN_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_DFFE_NP0N_'.
+Generating RTLIL representation for module `$_DFFE_NP1N_'.
+Generating RTLIL representation for module `$_DFFE_PP0N_'.
+Generating RTLIL representation for module `$_DFFE_PP1N_'.
+Generating RTLIL representation for module `$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `$_ALDFF_NP_'.
+Generating RTLIL representation for module `$_ALDFF_PP_'.
+Generating RTLIL representation for module `$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `$lut'.
+Successfully finished Verilog frontend.
+
+5.47.2. Continuing TECHMAP pass.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$bdef8a4236b2618ef82ff6d08787d9d3dfc92d2b$lut for cells of type $lut.
+Using template $paramod$cf99e2ba0c23584f07d6b7389984bfd23fed3c9a$lut for cells of type $lut.
+Using template $paramod$70030fad4752898f91dbdc976f7643d169393c6b$lut for cells of type $lut.
+Using template $paramod$cb80b61e77d422ad65a22211d3e6a54b25350446$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+No more expansions possible.
+<suppressed ~430 debug messages>
+
+5.48. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in systolic_array_3x3.
+Removed 0 unused cells and 586 unused wires.
+
+5.49. Executing AUTONAME pass.
+Renamed 1879 objects in module systolic_array_3x3.
+<suppressed ~1879 debug messages>
+
+5.50. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `systolic_array_3x3'. Setting top module to systolic_array_3x3.
+
+5.50.1. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+
+5.50.2. Analyzing design hierarchy..
+Top module:  \systolic_array_3x3
+Removed 0 unused modules.
+
+5.51. Printing statistics.
+
+=== systolic_array_3x3 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      978 wires
+     2565 wire bits
+      978 public wires
+     2565 public wire bits
+        7 ports
+      388 port bits
+       27 cells
+       18   $scopeinfo
+        9   MULT18X18D
+      918 submodules
+      144   CCU2C
+      292   LUT4
+      482   TRELLIS_FF
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       27 systolic_array_3x3
+
+        +----------Count including submodules.
+        | 
+      978 wires
+     2565 wire bits
+      978 public wires
+     2565 public wire bits
+        7 ports
+      388 port bits
+        - memories
+        - memory bits
+        - processes
+       27 cells
+       18   $scopeinfo
+        9   MULT18X18D
+      918 submodules
+      144   CCU2C
+      292   LUT4
+      482   TRELLIS_FF
+
+5.52. Executing CHECK pass (checking for obvious problems).
+Checking module systolic_array_3x3...
+Found and reported 0 problems.
+
+5.53. Executing JSON backend.
+
+6. Printing statistics.
+
+=== systolic_array_3x3 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      978 wires
+     2565 wire bits
+      978 public wires
+     2565 public wire bits
+        7 ports
+      388 port bits
+      945 cells
+       18   $scopeinfo
+      144   CCU2C
+      292   LUT4
+        9   MULT18X18D
+      482   TRELLIS_FF
+
+End of script. Logfile hash: fb37eadb5b, time: 0.98s, user: 4.01s, system: 0.00s
+Yosys 0.71 (git sha1 b4c586fd3, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 29% 23x read_verilog (0 sec), 20% 23x opt_expr (0 sec), ...
