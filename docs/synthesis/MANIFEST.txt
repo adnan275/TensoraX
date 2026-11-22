@@ -1,0 +1,5 @@
+repo https://github.com/adnan275/TensoraX commit 3661845b01591364cc6989550dda01cc93228279
+d631c9b08d73244d3e7b50cefe675bb70eaf1cb082a4fb35af63ff1b0c8e3bf9  mac_unit.v
+ff39368e5f1adb2df09db71f6b237abcdb93425b23408c2acb33e025f79cbdc3  pe.v
+5df2afc4dc42fbe5da5d70d9ba8a2c61f29aa055019a51029a49ce94e7a08545  systolic_array_3x3.v
+Tools: Yosys 0.71, nextpnr-ecp5 0.11.1 (YoWASP builds)
