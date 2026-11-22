@@ -28,6 +28,12 @@ def compute_pe_utilization(n):
     total_pe_cycles = (n ** 2) * compute_systolic_latency(n)
     return (active_mac_cycles / total_pe_cycles) * 100.0
 
+def compute_dram_traffic(n, bytes_per_elem=2):
+    naive_cpu_bytes = (2 * (n ** 3) + (n ** 2)) * bytes_per_elem
+    systolic_bytes = (2 * (n ** 2) + (n ** 2)) * bytes_per_elem
+    traffic_reduction_ratio = naive_cpu_bytes / systolic_bytes
+    return naive_cpu_bytes, systolic_bytes, traffic_reduction_ratio
+
 def run_scaling_sweep(min_n=2, max_n=16):
     print("=========================================================================")
     print(" TensoraX Systolic Array Scaling Sweep: N x N Microarchitecture Bounds  ")
@@ -46,5 +52,17 @@ def run_scaling_sweep(min_n=2, max_n=16):
         
     print("=========================================================================")
 
+def run_bandwidth_sweep(min_n=2, max_n=8):
+    print("\n=========================================================================")
+    print(" External Memory Bandwidth & Traffic Analysis (16-bit Operands)         ")
+    print("=========================================================================")
+    print(f"{'N':>3} | {'CPU Traffic (B)':>15} | {'Systolic Traffic (B)':>20} | {'Reduction Ratio':>16}")
+    print("-" * 65)
+    for n in range(min_n, max_n + 1):
+        cpu_b, sys_b, ratio = compute_dram_traffic(n, bytes_per_elem=2)
+        print(f"{n:>3} | {cpu_b:>15,} | {sys_b:>20,} | {ratio:>15.2f}x")
+    print("=========================================================================")
+
 if __name__ == "__main__":
     run_scaling_sweep()
+    run_bandwidth_sweep()
