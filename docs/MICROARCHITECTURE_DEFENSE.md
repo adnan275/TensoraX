@@ -46,3 +46,22 @@ Because operands are 16-bit signed integers:
 - A single Xilinx DSP48E1 slice natively supports $25 \times 18$ signed multiplication and 48-bit accumulation.
 - TensoraX's $16 \times 16 \to 32$ operation maps **one-to-one** into a single DSP48E1 slice without requiring multi-slice cascading or soft-logic LUT multiplier trees.
 - For a $3 \times 3$ array, exactly 9 DSP slices are consumed, leaving over 90% of FPGA DSP resources free for system integration.
+
+
+---
+
+## 3. Accumulator Sizing Proof & Mathematical Bounds
+
+A critical viva topic is numerical precision and accumulator sizing:
+- **Input range:** Signed 16-bit integer $[-32,768, +32,767]$.
+- **Single Product dynamic range:**
+  $$P_{\max} = (-32,768) \times (-32,768) = 1,073,741,824 = +2^{30}$$
+- **Sum of $K$ products for dimension $N = 3$:**
+  $$C_{\max} = \sum_{k=0}^{2} A_{i,k} \cdot B_{k,j} = 3 \times 2^{30} \approx 3,221,225,472$$
+- In standard two's-complement arithmetic:
+  - Signed 32-bit integer dynamic range: $[-2^{31}, +2^{31}-1] = [-2,147,483,648, +2,147,483,647]$.
+  - If all operands simultaneously occupy the worst-case negative boundary ($-32,768$), $3 \times 2^{30}$ exceeds $+2^{31}-1$ and wraps around to negative:
+    $$3,221,225,472 \pmod{2^{32}} = -1,073,741,824$$
+- **Defense Strategy for Viva:**
+  1. In realistic normalized neural network models (e.g. weights in range $[-1.0, +1.0]$ or INT16 activations), values never occupy uniform extreme negative rails simultaneously.
+  2. For safety-critical workloads with arbitrary integer inputs, an extended 34-bit accumulator (`ACC_WIDTH = 34`) provides complete numerical headroom without wrap-around.
