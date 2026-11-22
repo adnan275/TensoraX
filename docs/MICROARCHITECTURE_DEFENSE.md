@@ -52,7 +52,7 @@ Because operands are 16-bit signed integers:
 
 ## 3. Accumulator Sizing Proof & Mathematical Bounds
 
-A critical viva topic is numerical precision and accumulator sizing:
+A critical architectural consideration is numerical precision and accumulator sizing:
 - **Input range:** Signed 16-bit integer $[-32,768, +32,767]$.
 - **Single Product dynamic range:**
   $$P_{\max} = (-32,768) \times (-32,768) = 1,073,741,824 = +2^{30}$$
@@ -62,7 +62,7 @@ A critical viva topic is numerical precision and accumulator sizing:
   - Signed 32-bit integer dynamic range: $[-2^{31}, +2^{31}-1] = [-2,147,483,648, +2,147,483,647]$.
   - If all operands simultaneously occupy the worst-case negative boundary ($-32,768$), $3 \times 2^{30}$ exceeds $+2^{31}-1$ and wraps around to negative:
     $$3,221,225,472 \pmod{2^{32}} = -1,073,741,824$$
-- **Defense Strategy for Viva:**
+- **Architectural Rationale:**
   1. In realistic normalized neural network models (e.g. weights in range $[-1.0, +1.0]$ or INT16 activations), values never occupy uniform extreme negative rails simultaneously.
   2. For safety-critical workloads with arbitrary integer inputs, an extended 34-bit accumulator (`ACC_WIDTH = 34`) provides complete numerical headroom without wrap-around.
 

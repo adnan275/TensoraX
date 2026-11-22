@@ -1,6 +1,6 @@
-# TensoraX viva demo runbook — Aditya Pal
+# TensoraX Demonstration Runbook — Aditya Pal
 
-## Before the viva
+## Pre-run Checklist
 Run these from the repository root on the machine that has Icarus Verilog and GTKWave installed.
 
 ```bash
@@ -42,7 +42,7 @@ Show the mid-operation reset, cleared state, and recovery on a subsequent operat
 - 5:00–6:00 — Roofline model and what must still be measured.
 - 6:00–7:00 — limitations, conclusions, questions.
 
-## Answers to likely viva questions
+## Architecture and Design FAQs
 **Why skew inputs?** To align the corresponding A row and B column values at each PE despite their different spatial positions.
 
 **Why output-stationary?** Each PE retains its partial sum locally while operands move through the mesh, reducing partial-sum movement.

@@ -81,7 +81,7 @@ An Artix-7 WNS and Fmax would need Xilinx timing tools. They are not in this rep
 - Limitations: no Artix-7 place-and-route or timing, no board or package, I/O paths unconstrained, one clock only.
 - A likely improvement is to register the multiplier output before the accumulate. That changes the RTL and the 7-cycle latency, so it was not applied or tested.
 
-## 6. Viva notes
+## 6. Synthesis Evaluation Summary
 
 - Resources inferred: 9 DSP48E1, 72 CARRY4, 576 LUTs, 482 FFs (Yosys, Artix-7 family).
 - Timing: say it was measured on ECP5, not Artix-7, about 93 MHz, and that 200 MHz was not met there. Do not present 263 MHz as measured.
