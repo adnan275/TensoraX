@@ -45,3 +45,34 @@ $$\lim_{N \to \infty} \eta_{\text{single}}(N) = \lim_{N \to \infty} \frac{N}{3N 
 When streaming consecutive matrix tiles back-to-back (e.g. processing batches in Deep Learning inference), the latency overhead is amortized:
 $$T_{\text{batch}}(K) = (3N - 2) + (K - 1) \cdot N$$
 $$\eta_{\text{batch}}(K) = \frac{K \cdot N^3}{N^2 \cdot \left((3N - 2) + (K - 1) \cdot N\right)} \xrightarrow{K \gg 1} \frac{K \cdot N^3}{K \cdot N^3} = 100.0\%$$
+
+
+---
+
+## 3. External Memory Traffic & Bandwidth Savings
+
+In conventional Von-Neumann multi-core processors, computing $C_{i,j} = \sum_{k=0}^{N-1} A_{i,k} \cdot B_{k,j}$ requires repeatedly reading vectors from high-latency external memory (DRAM/L3 Cache) into registers.
+
+### Memory Traffic Comparison Equations:
+1. **Naive CPU Implementation (Zero Spatial Reuse):**
+   - Each dot-product element $C_{i,j}$ reads a row of $A$ ($N$ elements) and a column of $B$ ($N$ elements).
+   - Across $N^2$ elements, total memory reads equal:
+     $$\text{Traffic}_{\text{CPU}}(N) = \left(2 N^3 + N^2\right) \times \text{BytesPerElement}$$
+2. **TensoraX 2D Systolic Array (Spatial Forwarding Reuse):**
+   - Each matrix element $A_{i,k}$ is fetched from memory **exactly once** at the western boundary.
+   - Each weight element $B_{k,j}$ is fetched from memory **exactly once** at the northern boundary.
+   - Total memory traffic equals:
+     $$\text{Traffic}_{\text{TensoraX}}(N) = \left(2 N^2 + N^2\right) \times \text{BytesPerElement} = 3 N^2 \times \text{BytesPerElement}$$
+
+### Traffic Reduction Ratio:
+$$\text{Reduction Ratio} = \frac{\text{Traffic}_{\text{CPU}}}{\text{Traffic}_{\text{TensoraX}}} = \frac{2N^3 + N^2}{3N^2} = \frac{2N + 1}{3}$$
+
+| Matrix Dimension ($N$) | Naive CPU Traffic (Bytes) | TensoraX Traffic (Bytes) | Bandwidth Reduction |
+| :---: | :---: | :---: | :---: |
+| **$N = 2$** | 40 B | 24 B | **1.67x** |
+| **$N = 3$** (TensoraX) | 126 B | 54 B | **2.33x** |
+| **$N = 4$** | 288 B | 96 B | **3.00x** |
+| **$N = 8$** | 2,176 B | 384 B | **5.67x** |
+| **$N = 16$** | 16,896 B | 1,536 B | **11.00x** |
+
+This spatial data reuse directly circumvents the Von-Neumann memory-wall bottleneck, yielding massive power and latency reductions.
