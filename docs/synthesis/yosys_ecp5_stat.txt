@@ -1,0 +1,18 @@
+6. Printing statistics.
+
+=== systolic_array_3x3 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      978 wires
+     2565 wire bits
+      978 public wires
+     2565 public wire bits
+        7 ports
+      388 port bits
+      945 cells
+       18   $scopeinfo
+      144   CCU2C
+      292   LUT4
+        9   MULT18X18D
+      482   TRELLIS_FF
