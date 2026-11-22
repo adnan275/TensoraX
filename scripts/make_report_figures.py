@@ -17,17 +17,25 @@ import json
 import os
 import sys
 
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib")
+
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
-import scaling_analysis as sa  # noqa: E402  (Adnan Rizvi's model)
+if os.path.join(ROOT, "scripts") not in sys.path:
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
+
+try:
+    from scripts import scaling_analysis as sa
+except ImportError:
+    import scaling_analysis as sa
 
 OUT = os.path.join(ROOT, "docs", "report", "figures")
 os.makedirs(OUT, exist_ok=True)
-data = json.load(open(os.path.join(ROOT, "docs", "benchmark", "cpu_benchmark_results.json")))
+with open(os.path.join(ROOT, "docs", "benchmark", "cpu_benchmark_results.json"), "r") as fh:
+    data = json.load(fh)
 sweep = data["sweep_o2_generic_throughput"]
 fmax = data["method"]["hardware_clock_basis"]["ecp5_post_route_fmax_mhz"]
 F_MEAS = min(fmax.values())          # slowest of the three seeds, MHz

@@ -21,10 +21,16 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
-import scaling_analysis as sa  # noqa: E402
+if os.path.join(ROOT, "scripts") not in sys.path:
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
-D = json.load(open(os.path.join(ROOT, "docs", "benchmark", "cpu_benchmark_results.json")))
+try:
+    from scripts import scaling_analysis as sa
+except ImportError:
+    import scaling_analysis as sa
+
+with open(os.path.join(ROOT, "docs", "benchmark", "cpu_benchmark_results.json"), "r") as fh:
+    D = json.load(fh)
 res = {(r["variant"], r["kernel"], r["workload"]): r for r in D["results_n3"]}
 sweep = D["sweep_o2_generic_throughput"]
 fmax = D["method"]["hardware_clock_basis"]["ecp5_post_route_fmax_mhz"]
