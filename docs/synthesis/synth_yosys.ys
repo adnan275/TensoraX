@@ -1,0 +1,4 @@
+read_verilog -sv -I. mac_unit.v pe.v systolic_array_3x3.v
+hierarchy -top systolic_array_3x3
+synth_xilinx -family xc7 -flatten -top systolic_array_3x3
+stat
