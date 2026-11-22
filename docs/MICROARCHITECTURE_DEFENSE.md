@@ -65,3 +65,20 @@ A critical viva topic is numerical precision and accumulator sizing:
 - **Defense Strategy for Viva:**
   1. In realistic normalized neural network models (e.g. weights in range $[-1.0, +1.0]$ or INT16 activations), values never occupy uniform extreme negative rails simultaneously.
   2. For safety-critical workloads with arbitrary integer inputs, an extended 34-bit accumulator (`ACC_WIDTH = 34`) provides complete numerical headroom without wrap-around.
+
+
+---
+
+## 4. Interconnect Routing & Clock Tree Considerations
+
+### A. Local Nearest-Neighbor Routing
+In a standard crossbar or centralized register file, wire fanout scales as $O(N^2)$, causing routing congestion and capacitive delay spikes. In TensoraX:
+- Each Processing Element communicates strictly with its direct **nearest neighbor**:
+  - $A_{\text{out}}$ connects only to $PE(i, j+1)$ (Fanout = 1).
+  - $B_{\text{out}}$ connects only to $PE(i+1, j)$ (Fanout = 1).
+- Because wire fanout is strictly $1$, capacitive wire loading remains bounded and independent of array size $N$.
+
+### B. Global Clock Distribution & Skew Mitigation
+- The only global nets are `clk` and `rst_n`.
+- Synchronous global clear `clr_acc` is broadcast across the array.
+- On FPGA targets, global clock buffers (BUFG) ensure balanced low-skew clock distribution across all 9 PE flip-flop clusters, preventing hold-time violations across neighboring PEs.
