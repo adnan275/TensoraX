@@ -1,6 +1,0 @@
-workload_n,precision,cpu_model,cpu_threads,cpu_median_ms,fpga_board,fpga_clock_mhz,fpga_kernel_median_ms,fpga_end_to_end_median_ms,repetitions,notes
-2,INT16,,,,,,,,,
-3,INT16,,,,,,,,,
-4,INT16,,,,,,,,,
-8,INT16,,,,,,,,,
-16,INT16,,,,,,,,,
