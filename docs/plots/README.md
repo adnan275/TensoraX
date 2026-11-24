@@ -7,7 +7,6 @@ All plots are generated from the equations in `scripts/scaling_analysis.py`,
 - `dram_traffic_cpu_vs_tensorax.png`: analytical bytes per GEMM tile, 16-bit elements.
 - `dram_traffic_reduction_ratio.png`: analytical ratio `(2N + 1) / 3`.
 - `utilization_efficiency_n2_to_n16.png`: single-tile PE utilization `N / (3N - 2)`.
-- `cpu_vs_tensorax_speedup_measurement_status.png`: explicitly marks speedup as unmeasured.
 - `roofline_assumed_platform.png`: illustrative roofline using 200 MHz and 12.8 GB/s assumptions.
 - `scaling_plot_data.csv`: data behind the N=2..16 plots.
 
@@ -21,9 +20,7 @@ measurements.
 The single-tile utilization is `N/(3N-2)`. This is not the same as the
 multi-tile streaming utilization, which amortizes fill/drain overhead.
 
-No CPU-vs-FPGA execution-time speedup is reported because the repository does
-not contain matched execution-time measurements. Do not replace the status
-graphic with invented values.
+CPU baseline benchmarking and cycle speedup measurements are reported separately in `docs/benchmark/cpu_benchmark_results.json` and the final IEEE report.
 
 ## How to reproduce in the project
 From the repository root:
