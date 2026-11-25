@@ -20,7 +20,7 @@ Inspired by AI acceleration hardware such as the Google TPU (Tensor Processing U
 | **Adnan Rizvi** | **Lead Microarchitect & Architecture Specialist** | - Mathematical scaling derivation: $T(N) = 3N - 2$ cycle latency proof across $N=2..16$.<br>- Continuous batch streaming model ($\approx 98.7\%$ sustained PE utilization).<br>- External memory traffic model ($2.33\times$ to $11\times$ DRAM bandwidth reduction vs naive CPU).<br>- Analytical Roofline model ($N/3\text{ FLOP/B}$ operational intensity, memory vs compute crossovers).<br>- Microarchitecture defense: critical path breakdown ($F_{\max} \approx 263\text{ MHz}$ on Artix-7), DSP mapping, and accumulator bitwidth safety.<br>- Regression test suite orchestration (`scripts/run_all_tests.sh`). |
 | **Aviral Mishra** | **FPGA Synthesis & Timing Closure Lead** | - Yosys synthesis flow for Xilinx Artix-7 (`synth_yosys.ys`) and Lattice ECP5 (`synth_ecp5.ys`).<br>- Multi-seed place-and-route timing closure via Nextpnr (`nextpnr-ecp5`, seeds 1-3, $F_{\max} \approx 93\text{ MHz}$).<br>- Gate-level resource mapping analysis (9 DSP48E1, 72 CARRY4, 576 LUTs, 482 FFs).<br>- Synthesis validation report (`docs/SYNTHESIS_REPORT.md`) and SHA-256 checksum manifest (`MANIFEST.txt`). |
 | **Praanshu Ranjan** | **Benchmarking & IEEE Report Lead** | - Sequential C CPU baseline (`scripts/cpu_baseline.c`) verified bit-exact against 5,400 RTL test vectors.<br>- CPU vs FPGA speedup benchmark suite (`scripts/run_cpu_benchmark.py`) evaluating $S=7.3\times$ cycle speedup.<br>- Cycle-accurate RTL timing check testbench (`tb/tb_array_timing_check.v`, `scripts/run_timing_checks.sh`).<br>- IEEE two-column final paper source (`docs/report/TensoraX_Final_Report.tex`) and compiled document (`docs/TensoraX_Final_Report.pdf`). |
-| **Aditya Pal** | **Hardware Visualization & Demonstration Lead** | - Analytical performance and scaling visualization plots (`docs/plots/`).<br>- DRAM bandwidth reduction and PE utilization curves across matrix dimension sweeps.<br>- Roofline operational intensity charts and platform comparison curves.<br>- Hardware demonstration runbook and signal walkthrough guide (`docs/DEMO_RUNBOOK.md`). |
+| **Aditya Pal** | **Hardware Visualization & Demonstration Lead** | - Analytical performance and scaling visualization plots (`docs/plots/`).<br>- DRAM bandwidth reduction and PE utilization curves across matrix dimension sweeps.<br>- Roofline operational intensity charts and platform comparison curves. |
 
 ### Phase 1 Engineering Team (Foundation & RTL Verification)
 
@@ -247,7 +247,6 @@ TensoraX/
 │   └── make_report_figures.py     # Publication figure generator
 └── docs/                          # Engineering reports and documentation
     ├── TensoraX_Final_Report.pdf  # Compiled IEEE two-column conference paper
-    ├── DEMO_RUNBOOK.md            # Hardware demonstration walkthrough runbook
     ├── SYNTHESIS_REPORT.md        # Yosys synthesis and Nextpnr timing report
     ├── SCALING_ANALYSIS.md        # Latency derivations and memory traffic savings
     ├── MICROARCHITECTURE_DEFENSE.md # Microarchitectural design rationale and DSP analysis
